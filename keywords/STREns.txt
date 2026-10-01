@@ -1,0 +1,1 @@
+strings, string, bowed, arco, pizz, pizzicato, spiccato, tremolo, ensemble, section, quartet, tutti

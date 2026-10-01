@@ -74,6 +74,10 @@ Using UCSFilesManager
      These CatIDs will then be suggested if your actors' names are present in the non-UCS file names.
    - Ensure keywords are separated by commas for proper recognition by the software.
      WARNING! The plural is not automatic, you must therefore rewrite the keyword a second time in the plural (example: footstep and footsteps).
+   - The categories and keywords are generated from catalog/*.csv. To keep your changes when the
+     catalog is rebuilt, edit the "Synonyms" column in the CSV and run: python tools/build_catalog.py
+     Keywords must be single words (file names are split on "_" and spaces). See catalog/README.md,
+     which also documents the AI GENERATED and music production categories.
 
 6. Logs:
    - The software maintains a log of all operations performed, including renamed files, moved files paths, and user choices. 
