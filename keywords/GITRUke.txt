@@ -1,1 +1,1 @@
-guitar, guitars, gtr, riff, riffs, ukulele, ukuleles, uke
+guitar, guitars, gtr, riff, riffs, muted, palmmute, loop, loops, ukulele, ukuleles, uke

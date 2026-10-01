@@ -1,1 +1,1 @@
-keys, electric, piano, epiano, ep, rhodes, wurli, wurlitzer, dx7
+keys, loop, loops, electric, piano, epiano, ep, rhodes, wurli, wurlitzer, dx7

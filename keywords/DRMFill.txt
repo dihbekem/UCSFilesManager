@@ -1,1 +1,1 @@
-drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, fill, fills, roll, rolls
+drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, brush, brushes, acoustic, electronic, fill, fills, roll, rolls

@@ -1,1 +1,1 @@
-keys, harpsichord, harpsichords, cembalo
+keys, loop, loops, harpsichord, harpsichords, cembalo

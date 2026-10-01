@@ -1,1 +1,1 @@
-strings, string, bowed, arco, pizz, pizzicato, spiccato, tremolo, harp, harps, glissando
+strings, string, bowed, arco, pizz, pizzicato, spiccato, tremolo, loop, loops, harp, harps, glissando

@@ -1,1 +1,1 @@
-keys, piano, pianos, pno, grand, upright, grandpiano
+keys, loop, loops, piano, pianos, pno, grand, upright, grandpiano

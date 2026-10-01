@@ -1,1 +1,1 @@
-woodwind, woodwinds, harmonica, accordion, melodica, concertina, bandoneon, harmonium
+woodwind, woodwinds, loop, loops, harmonica, accordion, melodica, concertina, bandoneon, harmonium

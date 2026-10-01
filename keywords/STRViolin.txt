@@ -1,1 +1,1 @@
-strings, string, bowed, arco, pizz, pizzicato, spiccato, tremolo, violin, violins, vln, fiddle, fiddles
+strings, string, bowed, arco, pizz, pizzicato, spiccato, tremolo, loop, loops, violin, violins, vln, fiddle, fiddles

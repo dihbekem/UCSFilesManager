@@ -1,1 +1,1 @@
-world, folk, misc
+world, folk, loop, loops, misc

@@ -1,1 +1,1 @@
-keys, misc, mellotron, chamberlin, toypiano
+keys, loop, loops, misc, toypiano

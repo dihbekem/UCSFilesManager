@@ -1,1 +1,1 @@
-guitar, guitars, gtr, riff, riffs, banjo, banjos
+guitar, guitars, gtr, riff, riffs, muted, palmmute, loop, loops, banjo, banjos

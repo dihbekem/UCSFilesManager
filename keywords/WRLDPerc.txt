@@ -1,1 +1,1 @@
-world, folk, taiko, gamelan, dhol, dholak, surdo, berimbau, kanjira, ghatam
+world, folk, loop, loops, taiko, gamelan, dhol, dholak, surdo, berimbau, kanjira, ghatam

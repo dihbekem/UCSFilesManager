@@ -33,7 +33,8 @@ python tools/build_catalog.py --match "Vocal Chop Am 120.wav"   # preview the ap
 
 The build rejects custom rows that break these rules: duplicate CatIDs, a duplicate
 Category/SubCategory pair, commas in names, keywords with spaces, uppercase keywords, a
-CatID that doesn't start with its CatShort, or a CatID without keywords.
+CatID that doesn't start with its CatShort, a CatID without keywords, or a custom CatID that
+is the start of another CatID (or the other way round).
 
 ## AI GENERATED
 
@@ -66,6 +67,14 @@ Design rules:
   `synth_lead_saw.wav` therefore scores 2 on `SYNTHLead` and only 1 on the other SYNTH entries.
   Instrument family words also make cross-family names resolve correctly: `synth_bass` gives `BASSSynth`,
   `brass_stab` gives `BRASEns`, `vocal_chop` gives `VOCLChop` and `drum_stem` gives `STEMDrums`.
+* **Loops go with the instrument.** A subcategory says *what* is playing, not whether it is
+  a loop or a one-shot. A banjo loop goes in `GUITAR/BANJO`, and the word "loop" stays in the
+  file name, which is searchable. The melodic families have `loop, loops` as a family word, so
+  `banjo_loop_90.wav` scores 2 on `GITRBanjo` and beats `DRMLoop`. A `LOOP` subcategory exists
+  only where a loop mixes several instruments of the family: `DRUMS/LOOP`, `DRUMS/TOP LOOP`,
+  `PERCUSSION/LOOP` and `SAMPLE/LOOP`. Full songs go in `TRACKS`. `TUNED PERCUSSION/STEEL DRUM` is the only melodic
+  subcategory without "loop", so that `drum_loop` doesn't also match it.
+* **`TRACKS` is sorted by genre.** `STINGER` and `JINGLE` are the exceptions: they hold short cues and can be in any genre.
 * **Every family has a `MISC`.**
 * CatShorts are 2–5 letters, uppercase. CatIDs are the CatShort plus a capitalised suffix, and no
   CatID is the start of another one.
@@ -73,20 +82,21 @@ Design rules:
 | Category | CatShort | Subcategories |
 |---|---|---|
 | DRUMS | DRM | KICK, SNARE, CLAP, SNAP, HIHAT, CYMBAL, TOM, RIM, FILL, BREAK, LOOP, TOP LOOP, MISC |
-| PERCUSSION | PERC | HAND DRUM, SHAKER, TAMBOURINE, COWBELL, BLOCK, SCRAPER, TRIANGLE, ORCHESTRAL, ELECTRONIC, LOOP, MISC |
+| PERCUSSION | PERC | HAND DRUM, SHAKER, TAMBOURINE, COWBELL, BLOCK, SCRAPER, TRIANGLE, ORCHESTRAL, ELECTRONIC, BODY, FOUND, SLEIGH BELL, LOOP, MISC |
 | TUNED PERCUSSION | TPRC | MARIMBA, XYLOPHONE, VIBRAPHONE, GLOCKENSPIEL, CELESTA, CHIMES, BELLS, GONG, KALIMBA, STEEL DRUM, MISC |
-| KEYS | KEYS | PIANO, ELECTRIC PIANO, ORGAN, CLAVINET, HARPSICHORD, MISC |
-| SYNTH | SYNTH | LEAD, PAD, PLUCK, ARP, CHORD, STAB, DRONE, MISC |
+| KEYS | KEYS | PIANO, ELECTRIC PIANO, ORGAN, CLAVINET, HARPSICHORD, MELLOTRON, MISC |
+| SYNTH | SYNTH | LEAD, PAD, PLUCK, ARP, CHORD, STAB, DRONE, BELL, BRASS, STRINGS, VOICE, CHIPTUNE, MISC |
 | BASS | BASS | SYNTH, 808, SUB, ELECTRIC, UPRIGHT, GROWL, MISC |
-| GUITAR | GITR | ELECTRIC, DISTORTED, ACOUSTIC, NYLON, SLIDE, BANJO, UKULELE, MANDOLIN, MISC |
-| STRINGS | STR | VIOLIN, VIOLA, CELLO, CONTRABASS, HARP, ENSEMBLE, MISC |
-| BRASS | BRAS | TRUMPET, TROMBONE, FRENCH HORN, TUBA, ENSEMBLE, MISC |
+| GUITAR | GITR | ELECTRIC, DISTORTED, ACOUSTIC, NYLON, SLIDE, BANJO, UKULELE, MANDOLIN, FX, MISC |
+| STRINGS | STR | VIOLIN, VIOLA, CELLO, CONTRABASS, HARP, ENSEMBLE, FX, MISC |
+| BRASS | BRAS | TRUMPET, TROMBONE, FRENCH HORN, TUBA, ENSEMBLE, FX, MISC |
 | WOODWINDS | WWND | FLUTE, CLARINET, OBOE, BASSOON, SAXOPHONE, FREE REED, ENSEMBLE, MISC |
 | ORCHESTRA | ORCH | ENSEMBLE, HIT, MISC |
-| VOCALS | VOCL | LEAD, PHRASE, RAP, CHOP, ADLIB, SHOUT, CHOIR, BACKING, SPOKEN, PROCESSED, BREATH, MISC |
+| VOCALS | VOCL | LEAD, PHRASE, RAP, CHOP, ADLIB, SHOUT, CHOIR, BACKING, SPOKEN, PROCESSED, BREATH, BEATBOX, FX, MISC |
 | WORLD | WRLD | PLUCKED, BOWED, WIND, PERCUSSION, VOCAL, MISC |
 | SAMPLE | SMPL | LOOP, CHOP, VINYL, FOUND SOUND, MISC |
 | FX | FX | RISER, DOWNLIFTER, SWEEP, IMPACT, SUB DROP, REVERSE, NOISE, GLITCH, SCRATCH, ATMOS, MISC |
+| TRACKS | TRK | CINEMATIC, CLASSICAL, SUSPENSE, AMBIENT, ELECTRONIC, HIP HOP, POP, ROCK, JAZZ & BLUES, SOUL & FUNK, FOLK & COUNTRY, WORLD, CHIPTUNE, CORPORATE, KIDS, STINGER, JINGLE, MISC |
 | STEM | STEM | DRUMS, PERCUSSION, BASS, KEYS, SYNTH, GUITAR, STRINGS, BRASS, WOODWINDS, VOCALS, FX, MIX |
 
 ## Migrating from the first draft (`_categorylist.numbers`)

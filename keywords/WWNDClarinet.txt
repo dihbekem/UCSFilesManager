@@ -1,1 +1,1 @@
-woodwind, woodwinds, clarinet, clarinets, clar, bassclarinet
+woodwind, woodwinds, loop, loops, clarinet, clarinets, clar, bassclarinet

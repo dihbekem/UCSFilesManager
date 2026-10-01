@@ -1,1 +1,1 @@
-strings, string, bowed, arco, pizz, pizzicato, spiccato, tremolo, viola, violas, vla
+strings, string, bowed, arco, pizz, pizzicato, spiccato, tremolo, loop, loops, viola, violas, vla

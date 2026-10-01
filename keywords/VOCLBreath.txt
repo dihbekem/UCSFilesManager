@@ -1,1 +1,1 @@
-vocal, vocals, vox, singer, breath, breaths, whisper, whispers, whispered, inhale, exhale
+vocal, vocals, vox, singer, loop, loops, breath, breaths, whisper, whispers, whispered, inhale, exhale

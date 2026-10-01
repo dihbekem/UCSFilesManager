@@ -1,1 +1,1 @@
-keys, organ, organs, hammond, b3, leslie, pipeorgan, farfisa
+keys, loop, loops, organ, organs, hammond, b3, leslie, pipeorgan, farfisa, calliope

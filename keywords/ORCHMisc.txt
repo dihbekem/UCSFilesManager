@@ -1,1 +1,1 @@
-orchestra, orchestral, orch, symphonic, cinematic, misc
+orchestra, orchestral, orch, symphonic, cinematic, loop, loops, misc

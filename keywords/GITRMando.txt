@@ -1,1 +1,1 @@
-guitar, guitars, gtr, riff, riffs, mandolin, mandolins, mando
+guitar, guitars, gtr, riff, riffs, muted, palmmute, loop, loops, mandolin, mandolins, mando

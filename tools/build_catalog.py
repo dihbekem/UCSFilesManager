@@ -78,6 +78,15 @@ def validate(rows):
                     f'{where}: keyword "{k}" in {catid} contains a space/underscore and can never match')
             if k != k.lower() and row['_custom']:
                 errors.append(f'{where}: keyword "{k}" in {catid} must be lowercase')
+    # Official UCS has a few of these (BEEP/RAIN/WIND) that move_order() works around;
+    # don't let the extension add more.
+    ids = [r['CatID'] for r in rows]
+    for row in rows:
+        if row['_custom']:
+            for other in ids:
+                if other != row['CatID'] and (other.startswith(row['CatID']) or row['CatID'].startswith(other)):
+                    errors.append(f"{row['_source']}: CatID \"{row['CatID']}\" and \"{other}\" start the same way, "
+                                  'already-UCS files would be moved to the wrong folder')
     pairs = {}
     for row in rows:
         pairs.setdefault((row['Category'], row['SubCategory']), []).append(row['CatID'])

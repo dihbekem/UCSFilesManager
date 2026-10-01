@@ -1,1 +1,1 @@
-woodwind, woodwinds, misc
+woodwind, woodwinds, loop, loops, misc, kazoo

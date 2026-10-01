@@ -1,1 +1,1 @@
-brass, horns, ensemble, section, stab, stabs
+brass, horns, loop, loops, ensemble, section, stab, stabs

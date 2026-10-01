@@ -1,1 +1,1 @@
-world, folk, shakuhachi, duduk, ney, didgeridoo, didge, panflute, panpipes, bagpipe, bagpipes, bansuri, ocarina, tinwhistle, zurna, hulusi, quena, seljefloyte
+world, folk, loop, loops, shakuhachi, duduk, ney, didgeridoo, didge, panflute, panpipes, bagpipe, bagpipes, bansuri, ocarina, tinwhistle, zurna, hulusi, quena, seljefloyte, seljefløyte, shehnai, shanai, pennywhistle, bukkehorn, lur

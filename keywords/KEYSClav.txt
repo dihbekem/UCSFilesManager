@@ -1,1 +1,1 @@
-keys, clav, clavinet, clavinets
+keys, loop, loops, clav, clavinet, clavinets

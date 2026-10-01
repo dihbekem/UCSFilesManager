@@ -1,1 +1,1 @@
-guitar, guitars, gtr, riff, riffs, nylon, classical, spanish, flamenco
+guitar, guitars, gtr, riff, riffs, muted, palmmute, loop, loops, nylon, classical, spanish, flamenco

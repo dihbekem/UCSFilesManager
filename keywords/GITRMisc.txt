@@ -1,1 +1,1 @@
-guitar, guitars, gtr, riff, riffs, misc
+guitar, guitars, gtr, riff, riffs, muted, palmmute, loop, loops, misc

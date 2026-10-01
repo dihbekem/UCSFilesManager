@@ -1,1 +1,1 @@
-guitar, guitars, gtr, riff, riffs, acoustic, steelstring, strum, strums, strumming
+guitar, guitars, gtr, riff, riffs, muted, palmmute, loop, loops, acoustic, steel, steelstring, 12string, twelvestring, strum, strums, strumming

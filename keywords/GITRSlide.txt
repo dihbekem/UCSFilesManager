@@ -1,1 +1,1 @@
-guitar, guitars, gtr, riff, riffs, slide, lapsteel, pedalsteel, dobro, resonator, bottleneck
+guitar, guitars, gtr, riff, riffs, muted, palmmute, loop, loops, slide, lapsteel, pedalsteel, dobro, resonator, bottleneck

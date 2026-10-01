@@ -1,1 +1,1 @@
-world, folk, sitar, oud, koto, shamisen, guzheng, pipa, bouzouki, balalaika, saz, kora, charango, dulcimer, santur, kantele, lute
+world, folk, loop, loops, sitar, oud, koto, shamisen, guzheng, pipa, bouzouki, balalaika, saz, kora, charango, dulcimer, santur, kantele, lute, jawharp, munnharpe, langeleik

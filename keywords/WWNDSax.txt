@@ -1,1 +1,1 @@
-woodwind, woodwinds, sax, saxes, saxophone, saxophones, altosax, tenorsax, barisax
+woodwind, woodwinds, loop, loops, sax, saxes, saxophone, saxophones, altosax, tenorsax, barisax

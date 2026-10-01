@@ -1,1 +1,1 @@
-woodwind, woodwinds, flute, flutes, piccolo, fife
+woodwind, woodwinds, loop, loops, flute, flutes, piccolo, fife, recorder, blokkfløyte, blokkfloyte
