@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, sport, sports, court, field, indoor, skate, water, winter
+ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, sport, sports, court, field, indoor, skate, water, winter

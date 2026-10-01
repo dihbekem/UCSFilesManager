@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, swoosh, whoosh, swish
+ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, swoosh, whoosh, swish

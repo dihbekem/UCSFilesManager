@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, animal, animals, amphibian, aquatic, bat, cat, dog, domestic, horse, primate, reptile, rodent, wild
+ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, animal, animals, amphibian, aquatic, bat, cat, dog, domestic, horse, primate, reptile, rodent, wild

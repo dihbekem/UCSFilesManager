@@ -1,1 +1,1 @@
-track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, jingle, jingles, logo, ident, idents, intro, låt, låter, musikk, underscore, audiologo, sonicbranding, soundlogo, bumper, bumpers, låt, låter
+track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, jingle, jingles, logo, ident, idents, intro, underscore, audiologo, sonicbranding, soundlogo, bumper, bumpers

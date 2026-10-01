@@ -1,1 +1,1 @@
-woodwind, woodwinds, loop, loops, sax, saxes, saxophone, saxophones, altosax, tenorsax, barisax, treblåsere, treblåser, saksofon, sopranosax, baritonesax, tenor, alto, soprano, baritone, treblasere, treblaser, treblåsere, treblåser
+woodwind, woodwinds, loop, loops, sax, saxes, saxophone, saxophones, altosax, tenorsax, barisax, sopranosax, baritonesax, tenor, alto, soprano, baritone

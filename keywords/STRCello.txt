@@ -1,1 +1,1 @@
-strings, string, bowed, arco, pizz, pizzicato, spiccato, loop, loops, cello, cellos, violoncello, strykere, celli, cellist
+strings, string, bowed, arco, pizz, pizzicato, spiccato, loop, loops, cello, cellos, violoncello, celli, cellist

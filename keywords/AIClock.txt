@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, clock, clocks, mechanics, tick
+ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, clock, clocks, mechanics, tick

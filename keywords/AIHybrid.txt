@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, hybrid, hybrids, chimera, fused, fusing, crossbreed, mashup, mixture, combined, blend, blended, spliced
+ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, hybrid, hybrids, chimera, fused, fusing, crossbreed, mashup, mixture, combined, blend, blended, spliced

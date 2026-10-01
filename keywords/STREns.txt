@@ -1,1 +1,1 @@
-strings, string, bowed, arco, pizz, pizzicato, spiccato, loop, loops, ensemble, section, quartet, tutti, strykere, quintet, sections, stringensemble, strykeorkester
+strings, string, bowed, arco, pizz, pizzicato, spiccato, loop, loops, ensemble, section, quartet, tutti, quintet, sections, stringensemble

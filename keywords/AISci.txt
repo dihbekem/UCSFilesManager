@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, scifi, sci-fi, futuristic, alarm, computer, machine, spaceship, weapon
+ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, scifi, sci-fi, futuristic, alarm, computer, machine, spaceship, weapon

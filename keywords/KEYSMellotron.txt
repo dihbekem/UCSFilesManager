@@ -1,1 +1,1 @@
-keys, loop, loops, mellotron, chamberlin, tron, optigan, tangenter, birotron
+keys, loop, loops, mellotron, chamberlin, tron, optigan, birotron

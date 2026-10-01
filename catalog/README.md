@@ -1,7 +1,7 @@
 # Category catalog
 
-> User guide (Norwegian): [docs/BRUKERVEILEDNING.md](../docs/BRUKERVEILEDNING.md). Every category,
-> subcategory and keyword: [docs/KATALOG.md](../docs/KATALOG.md), or print `docs/UCS-katalog.pdf`.
+> User guide: [docs/USER-GUIDE.md](../docs/USER-GUIDE.md). Metadata rules: [docs/METADATA-STYLE-GUIDE.md](../docs/METADATA-STYLE-GUIDE.md).
+> Every category, subcategory and keyword: [docs/CATALOG.md](../docs/CATALOG.md), or print `docs/UCS-catalog.pdf`.
 
 `data.txt`, `keywords/*.txt` and `UCS(folders).zip` are **generated** from the CSV files in
 this folder. To add or change categories or keywords, edit the CSV (Numbers, Excel or a text
@@ -12,14 +12,14 @@ python tools/build_catalog.py            # validate + regenerate everything
 python tools/build_catalog.py --check    # validate only
 python tools/build_catalog.py --match "Vocal Chop Am 120.wav"   # preview the app's suggestions
 python tools/build_catalog.py --test     # file names in match_tests.csv must land where expected
-python tools/build_docs.py --pdf         # regenerate docs/KATALOG.md and docs/UCS-katalog.pdf
+python tools/build_docs.py --pdf         # regenerate docs/CATALOG.md, docs/GENRES.md and docs/UCS-catalog.pdf
 ```
 
 | File | Content |
 |---|---|
 | `ucs_official.csv` | The official UCS list (753 CatIDs, all translations). Keywords are this project's tuned versions. |
 | `custom_categories.csv` | The extension: `AI GENERATED` + the music production categories. |
-| `genres.csv` | Genre/Subgenre vocabulary for the metadata fields (not a CatID): genre, subgenre, TRACKS CatID, typical BPM, description. Rendered to `docs/SJANGRE.md`. |
+| `genres.csv` | Genre/Subgenre vocabulary for the metadata fields (not a CatID): genre, subgenre, TRACKS CatID, typical BPM, description. Rendered to `docs/GENRES.md`. |
 | `match_tests.csv` | Regression tests: file name, expected CatID, max options in the selection window. |
 | `_categorylist.xlsx` | Both lists merged, for browsing. Generated, don't edit. |
 

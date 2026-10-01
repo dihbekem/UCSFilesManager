@@ -1,1 +1,1 @@
-drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, clap, claps, handclap, handclaps, clp, tromme, trommer, trommesett, hit, hits, oneshot, oneshots, one-shot, hand, clapping, klapp
+drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, clap, claps, handclap, handclaps, clp, hit, hits, oneshot, oneshots, one-shot, hand, clapping

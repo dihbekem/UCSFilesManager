@@ -1,1 +1,1 @@
-track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, corporate, uplifting, inspirational, motivational, commercial, advertising, låt, låter, musikk, underscore, reklame, presentation, låt, låter
+track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, corporate, uplifting, inspirational, motivational, commercial, advertising, underscore, presentation

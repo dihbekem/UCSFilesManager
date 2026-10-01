@@ -1,1 +1,1 @@
-keys, loop, loops, harpsichord, harpsichords, cembalo, tangenter, virginal, spinet
+keys, loop, loops, harpsichord, harpsichords, cembalo, virginal, spinet

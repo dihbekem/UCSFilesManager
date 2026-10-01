@@ -1,1 +1,1 @@
-keys, loop, loops, clav, clavinet, clavinets, tangenter, funky
+keys, loop, loops, clav, clavinet, clavinets, funky

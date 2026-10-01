@@ -1,1 +1,1 @@
-orchestral, timpani, timp, concert, loop, loops, hit, hits, oneshot, oneshots, one-shot, roll, rolls, timps, pauke, pauker, grancassa, concertsnare, concertbass
+orchestral, timpani, timp, concert, loop, loops, hit, hits, oneshot, oneshots, one-shot, roll, rolls, timps, grancassa, concertsnare, concertbass

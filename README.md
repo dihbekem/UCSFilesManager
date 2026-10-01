@@ -76,9 +76,9 @@ Using UCSFilesManager
      catalog is rebuilt, edit the "Synonyms" column in the CSV and run: python tools/build_catalog.py
      Keywords must be single words (file names are split on "_" and spaces). See catalog/README.md,
      which also documents the AI GENERATED and music production categories.
-     Full guide (Norwegian): docs/BRUKERVEILEDNING.md. All categories and keywords: docs/KATALOG.md
-     (printable: docs/UCS-katalog.pdf).
-     How to write FX Name, Description, Keywords, BPM and key: docs/METADATA-STILGUIDE.md.
+     Full guide: docs/USER-GUIDE.md. All categories and keywords: docs/CATALOG.md
+     (printable: docs/UCS-catalog.pdf).
+     How to write FX Name, Description, Keywords, genre, BPM and key: docs/METADATA-STYLE-GUIDE.md.
 
 6. Logs:
    - The software maintains a log of all operations performed, including renamed files, moved files paths, and user choices. 

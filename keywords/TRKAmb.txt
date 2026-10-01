@@ -1,1 +1,1 @@
-track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, ambient, chill, chillout, relaxing, meditation, newage, låt, låter, musikk, underscore, spa, sleep, yoga, rolig, låt, låter
+track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, ambient, chill, chillout, relaxing, meditation, newage, underscore, spa, sleep, yoga

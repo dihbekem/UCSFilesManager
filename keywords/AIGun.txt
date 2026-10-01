@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, gun, guns, gunshot, artillery, automatic, cannon, pistol, rifle, shotgun, suppressed
+ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, gun, guns, gunshot, artillery, automatic, cannon, pistol, rifle, shotgun, suppressed

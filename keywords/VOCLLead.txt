@@ -1,1 +1,1 @@
-vocal, vocals, vox, singer, loop, loops, lead, acapella, acappella, acapellas, sung, vokal, sang, sanger, singing, leadvocal, leadvox, mainvocal, topline, toplines
+vocal, vocals, vox, singer, loop, loops, lead, acapella, acappella, acapellas, sung, singing, leadvocal, leadvox, mainvocal, topline, toplines

@@ -1,1 +1,1 @@
-drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, rim, rims, rimshot, rimshots, sidestick, tromme, trommer, trommesett, hit, hits, oneshot, oneshots, one-shot, rimclick, crossstick, cross-stick, kantslag
+drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, rim, rims, rimshot, rimshots, sidestick, hit, hits, oneshot, oneshots, one-shot, rimclick, crossstick, cross-stick

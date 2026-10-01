@@ -1,1 +1,1 @@
-drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, snare, snares, snr, sd, tromme, trommer, trommesett, hit, hits, oneshot, oneshots, one-shot, snaredrum, snaredrums, skarptromme, skarptrommer, brush, brushes
+drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, snare, snares, snr, sd, hit, hits, oneshot, oneshots, one-shot, snaredrum, snaredrums, brush, brushes

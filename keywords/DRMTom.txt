@@ -1,1 +1,1 @@
-drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, tom, toms, floortom, racktom, tromme, trommer, trommesett, hit, hits, oneshot, oneshots, one-shot, tomtom, hightom, midtom, lowtom
+drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, tom, toms, floortom, racktom, hit, hits, oneshot, oneshots, one-shot, tomtom, hightom, midtom, lowtom

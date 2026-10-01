@@ -1,1 +1,1 @@
-track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, soul, funk, funky, rnb, motown, gospel, låt, låter, musikk, underscore, r&b, neosoul, boogie, randb, neo-soul, future-soul, futuresoul, låt, låter
+track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, soul, funk, funky, rnb, motown, gospel, underscore, r&b, neosoul, boogie, randb, neo-soul, future-soul, futuresoul

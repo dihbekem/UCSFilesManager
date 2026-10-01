@@ -1,1 +1,1 @@
-guitar, guitars, gtr, riff, riffs, muted, palmmute, loop, loops, distorted, distortion, dist, overdrive, overdriven, fuzz, highgain, chug, chugs, powerchord, gitar, gitarer, lick, licks, djent, shred, shredding, hi-gain, metalriff
+guitar, guitars, gtr, riff, riffs, muted, palmmute, loop, loops, distorted, distortion, dist, overdrive, overdriven, fuzz, highgain, chug, chugs, powerchord, lick, licks, djent, shred, shredding, hi-gain, metalriff

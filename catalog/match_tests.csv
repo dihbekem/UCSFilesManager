@@ -17,8 +17,8 @@ tts_voice_narrator.wav,AIVox,2
 Kick 808 01.wav,DRMKick,1
 kick_drum.wav,DRMKick,2
 snare_drum_tight.wav,DRMSnare,2
-skarptromme_01.wav,DRMSnare,1
-basstromme_hard.wav,DRMKick,3
+snare_drum_01.wav,DRMSnare,2
+bassdrum_hard.wav,DRMKick,3
 closed_hihat_01.wav,DRMHat,1
 open hat 02.wav,DRMHat,1
 crash_cymbal.wav,DRMCymb,1
@@ -103,10 +103,10 @@ slide_guitar.wav,GITRSlide,1
 ukulele_strum.wav,GITRUke,3
 mandolin.wav,GITRMando,2
 guitar_feedback.wav,GITRFx,1
-elgitar_riff.wav,GITRElec,1
-kassegitar.wav,GITRAco,1
+electric_guitar_riff.wav,GITRElec,1
+acoustic_guitar.wav,GITRAco,2
 violin_solo.wav,STRViolin,4
-fiolin_melodi.wav,STRViolin,1
+fiddle_melody.wav,STRViolin,4
 viola_legato.wav,STRViola,2
 cello_sustain.wav,STRCello,3
 contrabass_pizz.wav,STRCbass,1
@@ -130,8 +130,8 @@ bassoon.wav,WWNDBassoon,2
 tenor_sax_solo.wav,WWNDSax,2
 harmonica_blues.wav,WWNDReed,5
 accordion_waltz.wav,WWNDReed,3
-trekkspill.wav,WWNDReed,1
-munnspill.wav,WWNDReed,1
+accordion.wav,WWNDReed,2
+harmonica.wav,WWNDReed,4
 orchestra_hit.wav,ORCHHit,1
 full_orchestra_tutti.wav,ORCHEns,1
 Vocal Chop Am 120.wav,VOCLChop,1
@@ -150,16 +150,16 @@ spoken_word_vocal.wav,VOCLSpoken,1
 sitar loop.wav,WRLDPluck,1
 oud_melody.wav,WRLDPluck,4
 erhu.wav,WRLDBowed,2
-hardingfele_melody.wav,WRLDBowed,3
+hardangerfiddle.wav,WRLDBowed,1
 didgeridoo.wav,WRLDWind,1
 duduk.wav,WRLDWind,2
-seljefløyte.wav,WRLDWind,1
+willowflute.wav,WRLDWind,1
 taiko.wav,WRLDPerc,2
 gamelan_loop.wav,WRLDPerc,1
 joik.wav,WRLDVocal,1
 kulning.wav,WRLDVocal,1
 langeleik.wav,WRLDPluck,1
-munnharpe.wav,WRLDPluck,1
+jawharp.wav,WRLDPluck,1
 melodic_loop_Am.wav,SMPLLoop,1
 vinyl_sample_soul.wav,SMPLVinyl,1
 sample_chop.wav,SMPLChop,1
@@ -203,14 +203,14 @@ kids_lullaby.wav,TRKKids,1
 victory_stinger.wav,TRKStinger,1
 gameover_stinger.wav,TRKStinger,1
 audio_logo_jingle.wav,TRKJingle,1
-filmmusikk.wav,TRKCine,1
+film_score_theme.wav,TRKCine,1
 top_loop_124.wav,DRMTop,1
 gamelan_loop.wav,WRLDPerc,1
 reverse_cymbal.wav,FXReverse,1
 hihat_01.wav,DRMHat,1
-trommeloop.wav,DRMLoop,1
-tromme_loop_90.wav,DRMLoop,2
-gitar_riff.wav,GITRAco,10
+drumloop_120.wav,DRMLoop,1
+drums_loop_90.wav,DRMLoop,2
+guitar_riff.wav,GITRAco,10
 piano_loop_Cmaj.wav,KEYSPiano,2
 marimba_hit.wav,TPRCMarimba,1
 cajon_loop.wav,PERCHand,1

@@ -1,1 +1,1 @@
-woodwind, woodwinds, loop, loops, ensemble, section, treblåsere, treblåser, treblasere, treblaser, quartet, quintet, treblåsere, treblåser
+woodwind, woodwinds, loop, loops, ensemble, section, quartet, quintet

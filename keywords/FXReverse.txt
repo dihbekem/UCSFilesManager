@@ -1,1 +1,1 @@
-fx, transition, transitions, reverse, reversed, rev, reversecymbal, cymbal, reversecrash, backwards, baklengs
+fx, transition, transitions, reverse, reversed, rev, reversecymbal, cymbal, reversecrash, backwards

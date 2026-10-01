@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, timbre, transfer, timbretransfer, styletransfer, tonetransfer, ddsp, resynth, resynthesis, resynthesized, klangoverføring, klangoverforing
+ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, timbre, transfer, timbretransfer, styletransfer, tonetransfer, ddsp, resynth, resynthesis, resynthesized

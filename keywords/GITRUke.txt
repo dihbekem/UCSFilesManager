@@ -1,1 +1,1 @@
-guitar, guitars, gtr, riff, riffs, muted, palmmute, loop, loops, ukulele, ukuleles, uke, gitar, gitarer, lick, licks, ukes, ukelele, chord, chords
+guitar, guitars, gtr, riff, riffs, muted, palmmute, loop, loops, ukulele, ukuleles, uke, lick, licks, ukes, ukelele, chord, chords

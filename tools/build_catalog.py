@@ -81,8 +81,8 @@ def keywords_of(row):
 
 
 def with_decomposed(keywords):
-    """Add the decomposed (NFD) spelling of keywords like "låt" or "sauté". Files named on a
-    Mac can store "å" as "a" + combining ring, which never equals the composed keyword."""
+    """Add the decomposed (NFD) spelling of keywords like "cajón" or "sauté". Files named on a
+    Mac can store "ó" as "o" + combining accent, which never equals the composed keyword."""
     out = list(keywords)
     for k in keywords:
         nfd = unicodedata.normalize('NFD', k)

@@ -1,1 +1,1 @@
-guitar, guitars, gtr, riff, riffs, muted, palmmute, loop, loops, nylon, classical, spanish, flamenco, gitar, gitarer, lick, licks, klassiskgitar, gutstring, chord, chords
+guitar, guitars, gtr, riff, riffs, muted, palmmute, loop, loops, nylon, classical, spanish, flamenco, lick, licks, gutstring, chord, chords

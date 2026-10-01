@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, food, drink, cooking, drinking, eating, glassware, ingredients, kitchenware, pour, tableware
+ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, food, drink, cooking, drinking, eating, glassware, ingredients, kitchenware, pour, tableware

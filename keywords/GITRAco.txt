@@ -1,1 +1,1 @@
-guitar, guitars, gtr, riff, riffs, muted, palmmute, loop, loops, acoustic, steel, steelstring, 12string, twelvestring, strum, strums, strumming, gitar, gitarer, lick, licks, kassegitar, westerngitar, akustisk, fingerpicking, fingerpicked, fingerstyle, chord, chords
+guitar, guitars, gtr, riff, riffs, muted, palmmute, loop, loops, acoustic, steel, steelstring, 12string, twelvestring, strum, strums, strumming, lick, licks, fingerpicking, fingerpicked, fingerstyle, chord, chords

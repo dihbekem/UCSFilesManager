@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, crowd, crowds, walla, angry, applause, battle, cheering, children, conversation, group, laughter, panic
+ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, crowd, crowds, walla, angry, applause, battle, cheering, children, conversation, group, laughter, panic
