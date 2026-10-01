@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, ai-generated, genai, generated, generative, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, aircraft, airplane, plane, planes, helicopter, jet, controlled, prop, radio, rocket
+ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, aircraft, airplane, plane, planes, helicopter, jet, controlled, prop, radio, rocket

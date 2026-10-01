@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, ai-generated, genai, generated, generative, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, door, doors, cabinet, composite, dungeon, gate, glass, hardware, hydraulic, knock, prison, revolving, sliding, stone, swinging
+ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, door, doors, cabinet, composite, dungeon, glass, hardware, hydraulic, knock, prison, revolving, sliding, stone, swinging

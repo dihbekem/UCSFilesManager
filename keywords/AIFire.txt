@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, ai-generated, genai, generated, generative, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, fire, flame, flames, burning, burst, crackle, gas, ignite, sizzle, torch
+ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, fire, flame, flames, burning, burst, gas, ignite, sizzle, torch

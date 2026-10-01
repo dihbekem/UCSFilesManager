@@ -107,7 +107,7 @@ elgitar_riff.wav,GITRElec,1
 kassegitar.wav,GITRAco,1
 violin_solo.wav,STRViolin,4
 fiolin_melodi.wav,STRViolin,1
-viola_legato.wav,STRViola,1
+viola_legato.wav,STRViola,2
 cello_sustain.wav,STRCello,3
 contrabass_pizz.wav,STRCbass,1
 harp_glissando.wav,STRHarp,1
@@ -165,7 +165,7 @@ vinyl_sample_soul.wav,SMPLVinyl,1
 sample_chop.wav,SMPLChop,1
 foundsound_01.wav,SMPLFound,1
 riser_8bars.wav,FXRiser,4
-white_noise_riser.wav,FXRiser,2
+white_noise_riser.wav,FXRiser,4
 downlifter.wav,FXDown,1
 filter_sweep.wav,FXSweep,1
 cinematic_impact.wav,FXImpact,3
@@ -201,7 +201,7 @@ chiptune_track.wav,TRKChip,1
 corporate_uplifting_music.wav,TRKCorp,1
 kids_lullaby.wav,TRKKids,1
 victory_stinger.wav,TRKStinger,1
-game_over_jingle.wav,TRKStinger,1
+gameover_stinger.wav,TRKStinger,1
 audio_logo_jingle.wav,TRKJingle,1
 filmmusikk.wav,TRKCine,1
 top_loop_124.wav,DRMTop,1
@@ -215,3 +215,26 @@ piano_loop_Cmaj.wav,KEYSPiano,2
 marimba_hit.wav,TPRCMarimba,1
 cajon_loop.wav,PERCHand,1
 conga loop 100.wav,PERCHand,1
+ai_morph_dog_into_car.wav,AIMorph,1
+ai_hybrid_lion_engine.wav,AIHybrid,2
+timbre_transfer_voice_to_violin.wav,AITimbre,1
+ai_imaginary_instrument.wav,AIInstr,1
+ai_alien_planet_ambience.wav,AIWorld,2
+ai_impossible_glass_bend.wav,AIPhys,1
+ai_surreal_dream.wav,AISurr,1
+ai_gibberish_speech.wav,AIGibb,2
+ai_artifact_garbled.wav,AIArtf,1
+ai_latent_walk.wav,AILatent,1
+generative_ambient_track.wav,TRKAmb,1
+track_stinger.wav,TRKStinger,1
+drum_hihat.wav,DRMHat,1
+drum_break.wav,DRMBreak,1
+noise_sweep.wav,FXSweep,2
+fx_noise.wav,FXNoise,3
+mallet_bell.wav,TPRCBell,2
+tenor_sax.wav,WWNDSax,1
+tenor_vocal.wav,VOCLChoir,2
+brass_quintet.wav,BRASEns,1
+double_bass.wav,BASSUpright,2
+vintage_synth_pad.wav,SYNTHPad,1
+hand_saw.wav,TOOLHand,1

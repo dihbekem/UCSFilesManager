@@ -1,1 +1,1 @@
-strings, string, bowed, arco, pizz, pizzicato, spiccato, tremolo, loop, loops, viola, violas, vla, strykere, legato, staccato, marcato, sordino, bratsj
+strings, string, bowed, arco, pizz, pizzicato, spiccato, loop, loops, viola, violas, vla, strykere, bratsj

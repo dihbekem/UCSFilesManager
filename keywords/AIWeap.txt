@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, ai-generated, genai, generated, generative, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, weapon, weapons, armor, arrow, axe, blunt, bow, knife, polearm, siege, sword, whip
+ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, weapon, weapons, armor, arrow, axe, blunt, bow, knife, polearm, siege, sword, whip

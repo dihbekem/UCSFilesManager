@@ -1,1 +1,1 @@
-bass, basses, bassline, basslines, riff, riffs, loop, loops, upright, acoustic, doublebass, standup, bassriff, uprightbass, jazzupright
+bass, basses, bassline, basslines, riff, riffs, loop, loops, upright, acoustic, doublebass, standup, bassriff, uprightbass, jazzupright, double

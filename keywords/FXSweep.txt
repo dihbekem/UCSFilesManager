@@ -1,1 +1,1 @@
-fx, transition, transitions, sweep, sweeps, filter, filtersweep, sweeper, white, noise
+fx, transition, transitions, sweep, sweeps, filter, filtersweep, sweeper, noise

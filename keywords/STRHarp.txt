@@ -1,1 +1,1 @@
-strings, string, bowed, arco, pizz, pizzicato, spiccato, tremolo, loop, loops, harp, harps, glissando, strykere, legato, staccato, marcato, sordino, harpe, harpist, concertharp, lyre
+strings, string, bowed, arco, pizz, pizzicato, spiccato, loop, loops, harp, harps, glissando, strykere, harpe, harpist, concertharp, lyre

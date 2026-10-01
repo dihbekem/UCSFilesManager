@@ -1,1 +1,1 @@
-strings, string, bowed, arco, pizz, pizzicato, spiccato, tremolo, loop, loops, contrabass, contrabasses, doublebass, kontrabass, strykere, legato, staccato, marcato, sordino, contrabassi
+strings, string, bowed, arco, pizz, pizzicato, spiccato, loop, loops, contrabass, contrabasses, doublebass, kontrabass, strykere, contrabassi

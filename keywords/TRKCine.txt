@@ -1,1 +1,1 @@
-track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, cinematic, epic, trailer, film, orchestral, symphonic, heroic, adventure, låt, låter, musikk, underscore, movie, action, emotional, dramatic, filmmusikk
+track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, cinematic, epic, trailer, film, orchestral, symphonic, heroic, adventure, låt, låter, musikk, underscore, movie, filmmusikk

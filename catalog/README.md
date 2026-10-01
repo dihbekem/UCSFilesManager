@@ -44,16 +44,21 @@ is the start of another CatID (or the other way round).
 
 ## AI GENERATED
 
-The category has one subcategory per official UCS category (81 of them, plus `MISC`).
+The category has one subcategory per official UCS category (81 of them), 10 subcategories
+for sounds that only exist with generative AI (MORPH, HYBRID, TIMBRE TRANSFER, IMAGINARY
+INSTRUMENT, IMAGINARY WORLD, IMPOSSIBLE PHYSICS, SURREAL, GIBBERISH, ARTIFACT, LATENT SPACE), plus `MISC`.
 `ARCHIVED` is left out because it is an admin bucket, not a sound type. The folder is
 `AI GENERATED/<UCS CATEGORY>`, for example `AI GENERATED/EXPLOSIONS` with CatID `AIExpl`.
 
 Each AI keyword file contains:
-1. AI markers shared by all AI subcategories: `ai, aigen, aigenerated, genai, generated,
-   generative, elevenlabs, suno, udio, stableaudio, audiogen, audiocraft, musicgen`
+1. AI markers shared by all AI subcategories: `ai, aigen, aigenerated, ai-generated, genai,
+   elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, ki, kigenerert`.
+   Music-only tools (suno, udio, musicgen...) are only in `AIMusc`, voice-only tools (tts...)
+   only in `AIVox`. "generated"/"generative" are left out: not every generative sound is AI.
 2. the category's core words (`explosion`, `explosions`, ...)
 3. the words from the official subcategory names (`dog`, `horse`, `rifle`...). Words that
-   appear in three or more categories (`misc`, `impact`, `handle`...) are skipped.
+   appear in three or more categories (`misc`, `impact`, `handle`...), words that are also
+   music keywords (`bass`, `track`...) and words of the AI-only subcategories (`morph`) are skipped.
 
 So `AI_explosion_big.wav` or `elevenlabs dog bark.wav` lands on the AI subcategory, because the
 marker gives it the extra point. A normal `Wood_Door_Creak.wav` still goes straight to `DOORCreak`.

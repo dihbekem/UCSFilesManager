@@ -1,1 +1,1 @@
-track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, stinger, stingers, sting, stings, victory, gameover, fanfare, outro, låt, låter, musikk, underscore, game, over, win, lose, levelup, levelcomplete, success, fail, failure, reveal
+track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, stinger, stingers, sting, stings, victory, gameover, fanfare, outro, låt, låter, musikk, underscore, win, lose, levelup, levelcomplete

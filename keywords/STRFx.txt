@@ -1,1 +1,1 @@
-strings, string, bowed, arco, pizz, pizzicato, spiccato, tremolo, loop, loops, fx, collegno, col-legno, ponticello, scrape, scrapes, cluster, clusters, aleatoric, strykere, legato, staccato, marcato, sordino, col, legno, harmonic, harmonics, sul, tasto, flautando, detuned
+strings, string, bowed, arco, pizz, pizzicato, spiccato, loop, loops, fx, collegno, col-legno, ponticello, scrape, scrapes, cluster, clusters, aleatoric, strykere, col, legno, harmonic, harmonics, sul, tasto, flautando

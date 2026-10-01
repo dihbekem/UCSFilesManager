@@ -1,1 +1,1 @@
-fx, transition, transitions, noise, noises, whitenoise, pinknoise, crackle, vinylcrackle, vinyl, tapehiss, hiss
+fx, transition, transitions, noise, noises, whitenoise, pinknoise, crackle, vinylcrackle, vinyl, tapehiss, hiss, white, pink, brown

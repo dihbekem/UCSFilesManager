@@ -1,1 +1,1 @@
-guitar, guitars, gtr, riff, riffs, muted, palmmute, loop, loops, fx, noise, feedback, harmonic, harmonics, scrape, pickscrape, fretnoise, squeak, squeaks, gitar, gitarer, lick, licks, wah, wahwah, ebow, e-bow, whammy, divebomb, pinch, pickslide, pinchharmonic
+guitar, guitars, gtr, riff, riffs, muted, palmmute, loop, loops, fx, feedback, harmonic, harmonics, scrape, pickscrape, fretnoise, squeak, squeaks, gitar, gitarer, lick, licks, wah, wahwah, ebow, e-bow, whammy, divebomb, pinch, pickslide, pinchharmonic
