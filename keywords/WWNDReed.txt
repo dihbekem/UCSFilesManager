@@ -1,1 +1,1 @@
-woodwind, woodwinds, loop, loops, harmonica, accordion, melodica, concertina, bandoneon, harmonium, treblåsere, treblåser, munnspill, trekkspill, torader, accordian, bluesharp
+woodwind, woodwinds, loop, loops, harmonica, accordion, melodica, concertina, bandoneon, harmonium, treblåsere, treblåser, munnspill, trekkspill, torader, accordian, bluesharp, treblasere, treblaser, treblåsere, treblåser

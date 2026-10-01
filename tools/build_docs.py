@@ -1,5 +1,5 @@
 """Build docs/KATALOG.md (every category, subcategory and keyword) from catalog/*.csv,
-and optionally docs/UCS-katalog.pdf (user guide + catalog, ready to print).
+and optionally docs/UCS-katalog.pdf (user guide + metadata style guide + catalog, ready to print).
 
     python tools/build_docs.py          # docs/KATALOG.md
     python tools/build_docs.py --pdf    # also docs/UCS-katalog.pdf
@@ -24,6 +24,7 @@ ROOT = build_catalog.ROOT
 DOCS_DIR = os.path.join(ROOT, 'docs')
 CATALOG_MD = os.path.join(DOCS_DIR, 'KATALOG.md')
 GUIDE_MD = os.path.join(DOCS_DIR, 'BRUKERVEILEDNING.md')
+STYLE_MD = os.path.join(DOCS_DIR, 'METADATA-STILGUIDE.md')
 PDF_FILE = os.path.join(DOCS_DIR, 'UCS-katalog.pdf')
 SYN = build_catalog.SYN
 
@@ -121,10 +122,12 @@ def build_pdf(catalog_md):
         sys.exit('PDF needs Chromium or Chrome; set CHROME=/path/to/chrome')
     with open(GUIDE_MD, encoding='utf-8') as f:
         guide_md = f.read()
+    with open(STYLE_MD, encoding='utf-8') as f:
+        style_md = f.read()
     md = lambda text: markdown.markdown(text, extensions=['tables', 'fenced_code', 'toc'])
     today = datetime.date.today().isoformat()
-    body = (f'<div class="cover"><h1>UCSFilesManager</h1><p>Brukerveiledning og kategori- og nøkkelordkatalog</p>'
-            f'<p>{html.escape(today)}</p></div>' + md(guide_md) + md(catalog_md))
+    body = (f'<div class="cover"><h1>UCSFilesManager</h1><p>Brukerveiledning, metadata-stilguide og kategori- og nøkkelordkatalog</p>'
+            f'<p>{html.escape(today)}</p></div>' + md(guide_md) + md(style_md) + md(catalog_md))
     page = f'<!doctype html><html lang="no"><head><meta charset="utf-8"><style>{CSS}</style></head><body>{body}</body></html>'
     with tempfile.TemporaryDirectory() as tmp:
         src = os.path.join(tmp, 'docs.html')

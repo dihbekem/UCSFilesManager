@@ -1,1 +1,1 @@
-track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, hiphop, hip-hop, trap, boombap, drill, lofi, lo-fi, beat, beats, låt, låter, musikk, underscore, rap, phonk, grime, typebeat, boom-bap
+track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, hiphop, hip-hop, trap, boombap, lofi, lo-fi, beat, beats, låt, låter, musikk, underscore, rap, phonk, typebeat, boom-bap, låt, låter

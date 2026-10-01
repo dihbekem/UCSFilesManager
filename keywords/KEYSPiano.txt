@@ -1,1 +1,1 @@
-keys, loop, loops, piano, pianos, pno, grand, upright, grandpiano, tangenter, felt, feltpiano, concertgrand, steinway, bösendorfer, bosendorfer, pianoforte, prepared, preparedpiano, honkytonk, honky-tonk, flygel, chord, chords
+keys, loop, loops, piano, pianos, pno, grand, upright, grandpiano, tangenter, felt, feltpiano, concertgrand, steinway, bösendorfer, bosendorfer, pianoforte, prepared, preparedpiano, honkytonk, honky-tonk, flygel, chord, chords, bösendorfer

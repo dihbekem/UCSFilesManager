@@ -1,1 +1,1 @@
-track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, suspense, horror, tension, thriller, creepy, scary, låt, låter, musikk, underscore, spooky, skrekk, spenning, mystery
+track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, suspense, horror, tension, thriller, creepy, scary, låt, låter, musikk, underscore, spooky, skrekk, spenning, mystery, låt, låter

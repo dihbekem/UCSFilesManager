@@ -17,6 +17,7 @@ import argparse
 import csv
 import os
 import sys
+import unicodedata
 import zipfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -46,6 +47,17 @@ def load():
 
 def keywords_of(row):
     return [k.strip() for k in row[SYN].split(',') if k.strip()]
+
+
+def with_decomposed(keywords):
+    """Add the decomposed (NFD) spelling of keywords like "låt" or "sauté". Files named on a
+    Mac can store "å" as "a" + combining ring, which never equals the composed keyword."""
+    out = list(keywords)
+    for k in keywords:
+        nfd = unicodedata.normalize('NFD', k)
+        if nfd != k and nfd not in out:
+            out.append(nfd)
+    return out
 
 
 def validate(rows):
@@ -130,7 +142,7 @@ def write_keywords(rows):
             print(f'removed stale keywords/{name}')
     for row in rows:
         with open(os.path.join(KEYWORDS_DIR, row['CatID'] + '.txt'), 'w', encoding='utf-8', newline='') as f:
-            f.write(row[SYN].strip())
+            f.write(', '.join(with_decomposed(keywords_of(row))))
 
 
 def write_folders_zip(rows):
@@ -177,7 +189,7 @@ class Matcher:
 
     def __init__(self, rows):
         self.ordered = [r['CatID'] for r in move_order(rows)]
-        self.keywords = {r['CatID']: {k.strip().lower() for k in r[SYN].split(',')} for r in rows}
+        self.keywords = {r['CatID']: {k.lower() for k in with_decomposed(keywords_of(r))} for r in rows}
 
     def suggest(self, file_name):
         """Returns (already_ucs_catid, [(catid, score), ...])."""

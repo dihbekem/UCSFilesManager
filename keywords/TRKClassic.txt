@@ -1,1 +1,1 @@
-track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, classical, baroque, chamber, romantic, sonata, waltz, låt, låter, musikk, underscore, klassisk, barokk, concerto, nocturne, minuet, vals
+track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, classical, baroque, chamber, romantic, sonata, waltz, låt, låter, musikk, underscore, klassisk, barokk, concerto, nocturne, minuet, vals, låt, låter

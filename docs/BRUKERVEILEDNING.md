@@ -7,6 +7,9 @@ endrer kategorier og nøkkelord selv.
 Den komplette listen over alle kategorier, underkategorier og nøkkelord står i
 [KATALOG.md](KATALOG.md). Den lages automatisk fra kategorilisten.
 
+Hvordan FX Name, Description, Keywords, BPM og toneart skal skrives står i
+[METADATA-STILGUIDE.md](METADATA-STILGUIDE.md).
+
 ---
 
 ## 1. Kort om UCS
@@ -259,6 +262,9 @@ overskrevet neste gang listen bygges.
 - **Bare enkeltord.** «french horn» kan aldri treffe. Skriv `frenchhorn` og `horn`.
 - **Bare små bokstaver.** Programmet gjør filnavnet om til små bokstaver før det sammenligner.
 - **Flertall er ikke automatisk.** Skriv både `kick` og `kicks`.
+- **Æ, ø, å og aksenter går fint.** Byggeskriptet legger automatisk til skrivemåten Mac kan
+  bruke for slike tegn i filnavn, der «å» lagres som «a» pluss en ring. Legg gjerne til en ASCII-variant
+  også (`seljefloyte` ved siden av `seljefløyte`) for folk som skriver uten æøå.
 - **Ord som er fjernet med vilje.** I logikkgjennomgangen ble disse ordene tatt ut fordi de dro
   urelaterte filer inn i én underkategori:
   - `saw`: en håndsag havnet i SYNTH
@@ -270,6 +276,8 @@ overskrevet neste gang listen bygges.
   - `dark`, `calm`, `action`: stemningsord som dro filer inn i TRACKS
   - `game`, `success`, `fail`: UI-lyder havnet i TRACKS/STINGER
   - `acoustic`, `electronic`: beskrivelser, ikke trommeord
+  - `slam`, `flow`, `scratching`, `digital`, `crunch`, `drill`, `grime`, `swing`: vanlige
+    lydeffektord (dørsmell, vannføring, drill) som dro lydeffekter inn i musikk-kategoriene
 - **Ikke legg vanlige ord på én enkelt underkategori.** Ord som `hit`, `loop` og `melody` står
   i mange filnavn. Står et slikt ord bare på én underkategori, trekker den til seg filer som
   egentlig hører hjemme andre steder. Kjør testene etter hver endring.

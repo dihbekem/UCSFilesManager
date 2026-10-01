@@ -78,6 +78,7 @@ Using UCSFilesManager
      which also documents the AI GENERATED and music production categories.
      Full guide (Norwegian): docs/BRUKERVEILEDNING.md. All categories and keywords: docs/KATALOG.md
      (printable: docs/UCS-katalog.pdf).
+     How to write FX Name, Description, Keywords, BPM and key: docs/METADATA-STILGUIDE.md.
 
 6. Logs:
    - The software maintains a log of all operations performed, including renamed files, moved files paths, and user choices. 
