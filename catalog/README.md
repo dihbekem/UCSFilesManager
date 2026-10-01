@@ -13,6 +13,7 @@ python tools/build_catalog.py --check    # validate only
 python tools/build_catalog.py --match "Vocal Chop Am 120.wav"   # preview the app's suggestions
 python tools/build_catalog.py --test     # file names in match_tests.csv must land where expected
 python tools/build_docs.py --pdf         # regenerate docs/CATALOG.md, docs/GENRES.md and docs/UCS-catalog.pdf
+python tools/suggest_metadata.py "/path/to/Sample Packs" -o out.xlsx --creator JLP   # suggest metadata per file
 ```
 
 | File | Content |

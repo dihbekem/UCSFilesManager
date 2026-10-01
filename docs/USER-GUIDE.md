@@ -327,7 +327,53 @@ that lands in the wrong place, fix the keywords and run `--test` until everythin
 
 ---
 
-## 6. Known limitations
+## 6. Suggesting metadata for a whole library
+
+`tools/suggest_metadata.py` goes through every audio file in a folder (for example a drive of
+sample packs) and writes a spreadsheet with a suggestion per file. It renames nothing.
+
+| Column | Content |
+|---|---|
+| Path | Full path of the file |
+| Pack | First folder below the scanned folder (usually the pack name) |
+| Confidence | `high`, `medium: …` (with the reason), `already UCS`, or `REVIEW: …` (rows highlighted) |
+| CatID, Category, SubCategory | Suggested category |
+| FX Name | Suggested FX Name, following the style guide (25 characters, Title Case, number) |
+| Suggested File Name | `CatID_FX Name_CreatorID_SourceID_UserData` |
+| Description | Draft description: what it is, loop/one-shot, bars, BPM, key, root note, AI tool |
+| Genre, Subgenre | From genre names in the file or folder names (music categories only) |
+| BPM, Key, Root Note, Bars | Read from the file name; key spelled as in the style guide |
+| Keywords | Folder words and up to five synonyms not already in FX Name or Description |
+| Alternatives | Other CatIDs that scored the same |
+
+```
+python tools/suggest_metadata.py "/path/to/Sample Packs" -o sample-packs.xlsx --creator JLP
+```
+
+Instead of a folder you can pass a text file with one path per line, for example made with
+`find "/path/to/Sample Packs" -type f > file-list.txt`. Use `--root` to say which folder the paths
+are relative to (by default the folder they all share).
+
+How it decides:
+
+- File-name words count double, folder words count once, so `Tight 03.wav` in `Drums/Snares`
+  still becomes `DRMSnare`.
+- It splits words more freely than the app (`Kick01`, `ClosedHat`, `hi-hat`).
+- AI GENERATED is only considered when an AI word or tool name is in the name. TRACKS is only
+  considered when a track word (track, song, full, theme …) is there, so genre words alone don't
+  turn a drum loop into a song.
+- On a tie, the CatID matching the first type word in the file name wins (`Riser_White Noise` →
+  RISER), then the family's MISC, then the music categories before official UCS.
+- A file is treated as a loop when the name has "loop", a tempo ("124bpm"), or a key.
+- The SourceID is made from the pack folder name: "Lofi Dreams" → `LOFIDREAMS`,
+  "Trap Essentials Vol 2" → `TEV2`.
+
+The suggestions come from names only; the audio is not analysed. Read every row, above all those
+marked REVIEW, before renaming anything.
+
+---
+
+## 7. Known limitations
 
 These are in the app itself (`UCSFilesManager.exe`). Its source code (`V37.py`) is not in the
 repository, so they can't be fixed from here.
@@ -343,7 +389,7 @@ repository, so they can't be fixed from here.
 
 ---
 
-## 7. From the first draft (`_categorylist.numbers`)
+## 8. From the first draft (`_categorylist.numbers`)
 
 If you already renamed files with CatIDs from the first spreadsheet (`DRMKi`, `WOWIFlu` …),
 `catalog/README.md` lists the new CatIDs they correspond to.
