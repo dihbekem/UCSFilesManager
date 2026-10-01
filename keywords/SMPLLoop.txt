@@ -1,1 +1,1 @@
-sample, samples, sampled, flip, loop, loops, melodic, melody, melodies, musicloop
+sample, samples, sampled, flip, loop, loops, melodic, melody, melodies, musicloop, flips, sampling, melodyloop, melodicloop, musicloops

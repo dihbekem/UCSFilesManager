@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, genai, generated, generative, elevenlabs, suno, udio, stableaudio, audiogen, audiocraft, musicgen, boat, boats, ship, bow, fishing, motorboat, racing, rowboat, sailboat, submarine, wash
+ai, aigen, aigenerated, ai-generated, genai, generated, generative, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, boat, boats, ship, bow, fishing, motorboat, racing, rowboat, sailboat, submarine, wash

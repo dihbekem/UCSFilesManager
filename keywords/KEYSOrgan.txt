@@ -1,1 +1,1 @@
-keys, loop, loops, organ, organs, hammond, b3, leslie, pipeorgan, farfisa, calliope
+keys, loop, loops, organ, organs, hammond, b3, leslie, pipeorgan, farfisa, calliope, tangenter, church, churchorgan, kirkeorgel, orgel, drawbar, drawbars, reedorgan, chord, chords

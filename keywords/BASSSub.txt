@@ -1,1 +1,1 @@
-bass, basses, bassline, basslines, riff, riffs, loop, loops, sub, subs, subbass
+bass, basses, bassline, basslines, riff, riffs, loop, loops, sub, subs, subbass, bassriff, subbasses, lowsub

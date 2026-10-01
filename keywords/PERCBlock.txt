@@ -1,1 +1,1 @@
-perc, percs, percussion, percussions, percussive, block, blocks, clave, claves, woodblock, woodblocks, templeblock, castanet, castanets
+block, blocks, clave, claves, woodblock, woodblocks, templeblock, castanet, castanets, loop, loops, hit, hits, oneshot, oneshots, one-shot, jamblock, slapstick

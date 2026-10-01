@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, genai, generated, generative, elevenlabs, suno, udio, stableaudio, audiogen, audiocraft, musicgen, human, body, blow, breath, burp, cough, heartbeat, kiss, pee, skin, sneeze, sniff, snore, spit, vomit
+ai, aigen, aigenerated, ai-generated, genai, generated, generative, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, human, body, blow, breath, burp, cough, heartbeat, kiss, pee, skin, sneeze, sniff, snore, spit, vomit

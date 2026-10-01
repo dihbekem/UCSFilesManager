@@ -1,1 +1,1 @@
-keys, loop, loops, electric, piano, epiano, ep, rhodes, wurli, wurlitzer, dx7
+keys, loop, loops, electric, piano, epiano, ep, rhodes, wurli, wurlitzer, dx7, tangenter, fenderrhodes, suitcase, elpiano, el-piano, cp70, cp80, electricgrand, chord, chords

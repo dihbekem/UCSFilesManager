@@ -1,1 +1,1 @@
-fx, transition, transitions, riser, risers, rise, uplifter, uplifters, buildup, upsweep
+fx, transition, transitions, riser, risers, rise, uplifter, uplifters, buildup, upsweep, uplift, build, buildups, rising, noiseriser, white, noise

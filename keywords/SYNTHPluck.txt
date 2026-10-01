@@ -1,1 +1,1 @@
-synth, synths, synthesizer, synthesiser, analog, analogue, modular, polysynth, monosynth, moog, juno, prophet, serum, saw, supersaw, fm, wavetable, loop, loops, pluck, plucks, plk
+synth, synths, synthesizer, synthesiser, analog, analogue, modular, polysynth, monosynth, moog, juno, prophet, serum, saw, supersaw, fm, wavetable, loop, loops, pluck, plucks, plk, minimoog, jupiter, oberheim, ms20, vital, massive, sylenth, omnisphere, virus, eurorack, buchla, plucked

@@ -4,6 +4,7 @@ from the category CSVs in catalog/.
     python tools/build_catalog.py            # validate and write everything
     python tools/build_catalog.py --check    # validate only
     python tools/build_catalog.py --match "Kick 808 01.wav" "vocal_chop_Am.wav"
+    python tools/build_catalog.py --test     # run catalog/match_tests.csv
 
 Sources:
     catalog/ucs_official.csv       official UCS list (keep in sync with UCS releases)
@@ -167,33 +168,70 @@ def write_xlsx(header, rows):
     wb.save(XLSX_FILE)
 
 
-def match(rows, file_names):
-    """Mirror of the app: lowercase name, spaces -> "_", split on "_",
-    count shared words with each keyword file and keep the best score."""
-    keywords = {r['CatID']: {k.strip().lower() for k in r[SYN].split(',')} for r in rows}
-    where = {r['CatID']: f"{r['Category']}/{r['SubCategory']}" for r in rows}
-    ordered = move_order(rows)
-    for name in file_names:
-        print(name)
-        base = os.path.basename(name)
-        ucs = next((r['CatID'] for r in ordered if base.startswith(r['CatID'].replace(' ', '_'))), None)
-        if ucs:
-            print(f'  already UCS -> moved to {where[ucs]} ({ucs})')
-            continue
+class Matcher:
+    """Mirror of the app's two steps.
+
+    Already-UCS files: first CatID in data.txt order that the name starts with.
+    Other files: lowercase name, spaces -> "_", split on "_", count shared words
+    with each keyword file and keep every CatID with the best score."""
+
+    def __init__(self, rows):
+        self.ordered = [r['CatID'] for r in move_order(rows)]
+        self.keywords = {r['CatID']: {k.strip().lower() for k in r[SYN].split(',')} for r in rows}
+
+    def suggest(self, file_name):
+        """Returns (already_ucs_catid, [(catid, score), ...])."""
+        base = os.path.basename(file_name)
+        for catid in self.ordered:
+            if base.startswith(catid.replace(' ', '_')):
+                return catid, []
         words = set(os.path.splitext(base.lower().replace(' ', '_'))[0].split('_'))
-        scores = {catid: len(words & kws) for catid, kws in keywords.items()}
+        scores = {c: len(words & kws) for c, kws in self.keywords.items()}
         best = max(scores.values())
         if best == 0:
+            return None, []
+        return None, sorted((c, s) for c, s in scores.items() if s == best)
+
+
+def match(rows, file_names):
+    where = {r['CatID']: f"{r['Category']}/{r['SubCategory']}" for r in rows}
+    matcher = Matcher(rows)
+    for name in file_names:
+        print(name)
+        ucs, options = matcher.suggest(name)
+        if ucs:
+            print(f'  already UCS -> moved to {where[ucs]} ({ucs})')
+        elif not options:
             print('  no match')
-            continue
-        for catid in sorted(c for c, s in scores.items() if s == best):
-            print(f'  {catid:<12} {where[catid]}  (match level {best})')
+        for catid, score in options:
+            print(f'  {catid:<12} {where[catid]}  (match level {score})')
+
+
+def run_tests(rows):
+    """Check catalog/match_tests.csv: the expected CatID must be offered, among at most
+    max_options choices. Returns the number of failures."""
+    failures = 0
+    with open(os.path.join(CATALOG_DIR, 'match_tests.csv'), encoding='utf-8') as f:
+        lines = [l for l in f if l.strip() and not l.startswith('#')]
+    cases = list(csv.DictReader(lines))
+    matcher = Matcher(rows)
+    for case in cases:
+        ucs, options = matcher.suggest(case['file'])
+        offered = [ucs] if ucs else [c for c, _ in options]
+        limit = int(case['max_options'])
+        if case['expected'] not in offered or len(offered) > limit:
+            failures += 1
+            shown = ', '.join(offered[:8]) + (' ...' if len(offered) > 8 else '') or 'nothing'
+            print(f"FAIL {case['file']}: expected {case['expected']} in max {limit}, got {len(offered)}: {shown}")
+    print(f'{len(cases) - failures}/{len(cases)} match tests pass')
+    return failures
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--check', action='store_true', help='validate only, write nothing')
     parser.add_argument('--match', nargs='+', metavar='FILE', help='show which CatIDs the app would suggest')
+    parser.add_argument('--test', action='store_true', help='run catalog/match_tests.csv')
     args = parser.parse_args()
 
     header, rows = load()
@@ -208,6 +246,8 @@ def main():
     if args.match:
         match(rows, args.match)
         return
+    if args.test:
+        sys.exit(1 if run_tests(rows) else 0)
     print(f'{len(rows)} CatIDs in {len({r["Category"] for r in rows})} categories are valid')
     if args.check:
         return

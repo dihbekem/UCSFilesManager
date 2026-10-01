@@ -1,1 +1,1 @@
-stem, stems, multitrack, multitracks, mix, fullmix, mixdown, master, instrumental
+stem, stems, multitrack, multitracks, mix, fullmix, mixdown, master, instrumental, premaster, printmaster

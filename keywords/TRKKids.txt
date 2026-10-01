@@ -1,1 +1,1 @@
-track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, kids, childrens, lullaby, nursery, playful
+track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, kids, childrens, lullaby, nursery, playful, låt, låter, musikk, underscore, barn, barnesang, vuggesang, whimsical, cute

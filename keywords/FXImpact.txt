@@ -1,1 +1,1 @@
-fx, transition, transitions, impact, impacts, boom, booms, slam, hit, hits
+fx, transition, transitions, impact, impacts, boom, booms, slam, hit, hits, cinematic, slams, smell

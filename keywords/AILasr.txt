@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, genai, generated, generative, elevenlabs, suno, udio, stableaudio, audiogen, audiocraft, musicgen, laser, lasers, beam, gun
+ai, aigen, aigenerated, ai-generated, genai, generated, generative, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, kigenerert, ki, laser, lasers, beam, gun

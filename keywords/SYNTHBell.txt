@@ -1,1 +1,1 @@
-synth, synths, synthesizer, synthesiser, analog, analogue, modular, polysynth, monosynth, moog, juno, prophet, serum, saw, supersaw, fm, wavetable, loop, loops, bell, bells
+synth, synths, synthesizer, synthesiser, analog, analogue, modular, polysynth, monosynth, moog, juno, prophet, serum, saw, supersaw, fm, wavetable, loop, loops, bell, bells, minimoog, jupiter, oberheim, ms20, vital, massive, sylenth, omnisphere, virus, eurorack, buchla, synthbell, fmbell
