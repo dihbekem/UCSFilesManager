@@ -1,4 +1,5 @@
-"""Build docs/KATALOG.md (every category, subcategory and keyword) from catalog/*.csv,
+"""Build docs/KATALOG.md (every category, subcategory and keyword) and docs/SJANGRE.md
+(genre vocabulary) from catalog/*.csv,
 and optionally docs/UCS-katalog.pdf (user guide + metadata style guide + catalog, ready to print).
 
     python tools/build_docs.py          # docs/KATALOG.md
@@ -25,6 +26,7 @@ DOCS_DIR = os.path.join(ROOT, 'docs')
 CATALOG_MD = os.path.join(DOCS_DIR, 'KATALOG.md')
 GUIDE_MD = os.path.join(DOCS_DIR, 'BRUKERVEILEDNING.md')
 STYLE_MD = os.path.join(DOCS_DIR, 'METADATA-STILGUIDE.md')
+GENRES_MD = os.path.join(DOCS_DIR, 'SJANGRE.md')
 PDF_FILE = os.path.join(DOCS_DIR, 'UCS-katalog.pdf')
 SYN = build_catalog.SYN
 
@@ -48,6 +50,47 @@ def grouped(rows):
     for row in rows:
         cats.setdefault(row['Category'], []).append(row)
     return cats
+
+
+def genres_markdown(genres, rows):
+    names = {r['CatID']: f"TRACKS/{r['SubCategory']}" for r in rows}
+    by_genre = {}
+    for g in genres:
+        by_genre.setdefault(g['Genre'], []).append(g)
+    out = ['# Sjangre (Genre og Subgenre)', '',
+           '> Generert av `tools/build_docs.py` fra `catalog/genres.csv`. Ikke rediger denne filen,',
+           '> endre CSV-filen og kjør skriptet på nytt. Reglene for feltene står i',
+           '> [METADATA-STILGUIDE.md](METADATA-STILGUIDE.md#7-sjanger-genre-og-subgenre).', '',
+           f'{len(by_genre)} hovedsjangre og {len(genres)} undersjangre. Sjangernavnene skrives på engelsk og',
+           'nøyaktig som her, med samme store og små bokstaver, bindestreker og `&`.', '',
+           '## Oversikt', '',
+           '| Genre | Subgenre | TRACKS-kategori |', '|---|---|---|']
+    for genre, subs in by_genre.items():
+        tracks = sorted({names[g['Tracks CatID']] for g in subs})
+        out.append(f"| **{genre}** | {', '.join(g['Subgenre'] for g in subs)} | {', '.join(tracks)} |")
+    out.append('')
+    for genre, subs in by_genre.items():
+        out += [f'## {genre}', '', '| Subgenre | Typisk BPM | Beskrivelse | TRACKS-kategori |', '|---|---|---|---|']
+        for g in subs:
+            out.append(f"| {g['Subgenre']} | {g['Typical BPM'] or '–'} | {cell(g['Description'])} | "
+                       f"`{g['Tracks CatID']}` {names[g['Tracks CatID']]} |")
+        out.append('')
+    changed = [g for g in genres if g['Origin'] != 'list']
+    out += ['## Endringer fra første sjangerliste', '',
+            '«Live» er tatt ut som hovedsjanger. Det beskriver at musikken er spilt med ekte instrumenter, ikke',
+            'en sjanger, og skrives som nøkkelordet `Live Instruments`. «Hip Hop» under Hip Hop, «Pop» under',
+            'Dance og «Rock» under Live er tatt ut som undersjangre: da står bare hovedsjangeren, og Subgenre',
+            'er tom. «Indian» er slått sammen med South Asian, og «Brazilian», «Caribbean» og «Latin American»',
+            'med Latin & Caribbean. «Dance» er delt i House, Techno, Trance & Hard Dance og Dance & EDM, og',
+            'pop-sjangrene har fått sin egen hovedsjanger, Pop. «Classical» er blitt en hovedsjanger, og Cinematic',
+            'og Classical har fått undersjangre. Tabellen viser undersjangre som er flyttet, har fått nytt navn eller er',
+            'lagt til. Resten står med samme navn, men kan ligge under en ny hovedsjanger.', '',
+            '| Subgenre | Genre | Endring |', '|---|---|---|']
+    for g in changed:
+        origin = g['Origin'].replace('moved from', 'flyttet fra').replace('renamed from', 'nytt navn, var') \
+                            .replace('added', 'lagt til')
+        out.append(f"| {g['Subgenre']} | {g['Genre']} | {origin} |")
+    return '\n'.join(out)
 
 
 def catalog_markdown(rows):
@@ -124,10 +167,12 @@ def build_pdf(catalog_md):
         guide_md = f.read()
     with open(STYLE_MD, encoding='utf-8') as f:
         style_md = f.read()
+    with open(GENRES_MD, encoding='utf-8') as f:
+        genres_md = f.read()
     md = lambda text: markdown.markdown(text, extensions=['tables', 'fenced_code', 'toc'])
     today = datetime.date.today().isoformat()
-    body = (f'<div class="cover"><h1>UCSFilesManager</h1><p>Brukerveiledning, metadata-stilguide og kategori- og nøkkelordkatalog</p>'
-            f'<p>{html.escape(today)}</p></div>' + md(guide_md) + md(style_md) + md(catalog_md))
+    body = (f'<div class="cover"><h1>UCSFilesManager</h1><p>Brukerveiledning, metadata-stilguide, sjangre og kategori- og nøkkelordkatalog</p>'
+            f'<p>{html.escape(today)}</p></div>' + md(guide_md) + md(style_md) + md(genres_md) + md(catalog_md))
     page = f'<!doctype html><html lang="no"><head><meta charset="utf-8"><style>{CSS}</style></head><body>{body}</body></html>'
     with tempfile.TemporaryDirectory() as tmp:
         src = os.path.join(tmp, 'docs.html')
@@ -149,6 +194,9 @@ def main():
     with open(CATALOG_MD, 'w', encoding='utf-8') as f:
         f.write(text + '\n')
     print(f'wrote {os.path.relpath(CATALOG_MD, ROOT)}')
+    with open(GENRES_MD, 'w', encoding='utf-8') as f:
+        f.write(genres_markdown(build_catalog.load_genres(), rows) + '\n')
+    print(f'wrote {os.path.relpath(GENRES_MD, ROOT)}')
     if args.pdf:
         build_pdf(text)
 

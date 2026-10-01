@@ -1,0 +1,132 @@
+Genre,Subgenre,Tracks CatID,Typical BPM,Description,Origin
+Hip Hop,Boom Bap,TRKHiphop,85-95,"Sample-based 90s-style hip hop with swung, punchy drums.",list
+Hip Hop,Old School,TRKHiphop,90-110,"Early hip hop: drum machines, breaks and scratching.",added
+Hip Hop,Trap,TRKHiphop,130-160,"808 bass, rolling hi-hats and half-time drums.",list
+Hip Hop,Rage,TRKHiphop,140-160,"Aggressive trap with distorted, buzzing synth leads.",list
+Hip Hop,Pluggnb,TRKHiphop,140-160,"Plugg beats with soft R&B chords and melodies.",list
+Hip Hop,Drill,TRKHiphop,140-145,"Dark trap offshoot from Chicago and New York with sliding 808s.",list
+Hip Hop,UK Drill,TRKHiphop,140-145,"UK variant of drill: sliding 808s, syncopated snares, triplet hats.",list
+Hip Hop,Phonk,TRKHiphop,130-145,"Memphis-rap samples, cowbell melodies and lo-fi vocals.",added
+Hip Hop,Drift Phonk,TRKHiphop,120-140,"Fast, distorted phonk built on cowbell riffs.",moved from Dance
+Hip Hop,Lo-Fi Hip Hop,TRKHiphop,70-90,"Mellow, dusty beats with vinyl texture.",list
+Hip Hop,Glitch Hop,TRKHiphop,100-110,"Hip hop tempo with glitchy, bass-heavy electronic production.",list
+R&B & Soul,R&B,TRKSoul,60-100,Contemporary rhythm and blues.,moved from Hip Hop
+R&B & Soul,Soul,TRKSoul,70-110,"Classic soul: gospel-rooted vocals, live band.",moved from Hip Hop
+R&B & Soul,Neo Soul,TRKSoul,70-95,"Soul with jazz and hip hop harmony and drums.",added
+R&B & Soul,Future Soul,TRKSoul,70-100,Soul and R&B with modern electronic production.,moved from Hip Hop
+R&B & Soul,Funk,TRKSoul,95-120,"Syncopated bass and guitar grooves, horn stabs.",moved from Live
+R&B & Soul,Gospel,TRKSoul,60-130,"Church-rooted vocals, choir and organ.",moved from Live
+Pop,Indie Pop,TRKPop,90-130,Pop with an indie or DIY sound.,moved from Dance
+Pop,Synth-Pop,TRKPop,100-130,Pop driven by synthesizers.,moved from Dance
+Pop,Dream Pop,TRKPop,80-120,"Hazy, reverb-heavy, atmospheric pop.",moved from Dance
+Pop,Bedroom Pop,TRKPop,80-120,"Lo-fi, home-produced pop.",moved from Dance
+Pop,Hyperpop,TRKPop,140-180,"Maximal, pitched-up, distorted pop.",moved from Dance
+Pop,K-Pop,TRKPop,100-130,Korean pop.,moved from Dance
+Pop,J-Pop,TRKPop,100-140,Japanese pop.,added
+Pop,Dance Pop,TRKPop,110-130,Club-oriented pop.,added
+Pop,Eurodance,TRKPop,135-145,"90s European dance-pop with sung hooks and rap verses.",moved from Dance
+House,Deep House,TRKElec,118-124,"Warm, soulful house with jazzy chords.",list
+House,Tech House,TRKElec,124-128,"House groove with techno's minimal, percussive sound.",added
+House,Progressive House,TRKElec,124-128,"Long, building house with melodic layers.",list
+House,Melodic House,TRKElec,118-124,House focused on emotional melodies and pads.,list
+House,Big Room House,TRKElec,126-130,"Festival house with huge drops and simple leads.",list
+House,Future House,TRKElec,124-128,House with metallic pitch-bent bass leads.,list
+House,Bass House,TRKElec,124-128,House with heavy UK-style bass.,list
+House,Tropical House,TRKElec,100-115,"Relaxed house with marimba, steel drum and pan flute leads.",list
+House,French House,TRKElec,118-126,"Filtered disco samples, sidechained loops.",list
+House,Fidget House,TRKElec,126-130,"Glitchy, chopped house with bouncy basslines.",list
+House,Acid House,TRKElec,118-128,House built on the TB-303 acid bassline.,list
+Techno,Hard Techno,TRKElec,140-155,"Fast, distorted, relentless techno.",list
+Techno,Melodic Techno,TRKElec,120-126,"Techno with emotional arpeggios and pads.",list
+Techno,Minimal Techno,TRKElec,120-128,"Stripped-back, repetitive techno. Listed as ""Minimal Tanhi"" in the first draft.",renamed from Minimal Tanhi
+Techno,Dub Techno,TRKElec,115-125,"Deep techno with dub delays and chord stabs.",list
+Trance & Hard Dance,Trance,TRKElec,132-140,"Euphoric leads, long build-ups and breakdowns.",list
+Trance & Hard Dance,Psytrance,TRKElec,138-148,"Rolling 16th-note bass and psychedelic synths.",list
+Trance & Hard Dance,Hardstyle,TRKElec,150-160,"Distorted reverse-bass kicks and euphoric leads.",list
+Dance & EDM,EDM,TRKElec,126-130,"Mainstream festival electronic dance music.",list
+Dance & EDM,Electro,TRKElec,125-130,"Electro house: gritty, distorted synth bass.",list
+Dance & EDM,Future Bass,TRKElec,140-160,"Half-time drums, supersaw chords, vocal chops.",moved from Hip Hop
+Dance & EDM,Trap EDM,TRKElec,140-150,Festival trap with EDM drops.,list
+Dance & EDM,Moombahton,TRKElec,100-110,"Dutch house slowed to reggaeton tempo.",moved from Hip Hop
+Dance & EDM,Jersey Club,TRKElec,130-145,"Bouncy club music with triplet kicks and vocal chops.",moved from Hip Hop
+Dance & EDM,Rave,TRKElec,130-150,"90s-style rave: hoovers, stabs and breakbeats.",list
+Dance & EDM,Indie Dance,TRKElec,110-125,Dance music with indie and rock influences.,moved from Live
+Dance & EDM,Disco,TRKElec,110-125,"Four-on-the-floor with strings, bass and funk guitar.",list
+Dance & EDM,Nu Disco,TRKElec,115-125,Modern electronic take on disco.,list
+Bass Music,Drum & Bass,TRKElec,170-176,"Fast breakbeats and heavy bass. Listed as ""Drum and Bass"" in the first draft.",list
+Bass Music,Jump Up,TRKElec,172-176,"Bouncy, wobbly drum & bass. Listed as ""Jump Up DnB"" in the first draft.",list
+Bass Music,Liquid DnB,TRKElec,170-176,"Smooth, melodic drum & bass.",added
+Bass Music,Jungle,TRKElec,160-170,"Chopped breakbeats, reggae bass and samples.",list
+Bass Music,Breakbeat,TRKElec,120-140,"Sampled breakbeats instead of four-on-the-floor.",list
+Bass Music,Dubstep,TRKElec,140,Half-time drums with heavy sub and mid bass.,list
+Bass Music,Tearout Dubstep,TRKElec,140-150,"Aggressive, riddim-style dubstep.",list
+Bass Music,Drumstep,TRKElec,170-175,"Dubstep sound design over drum & bass tempo, half-time.",list
+Bass Music,Leftfield Bass,TRKElec,120-140,Experimental bass music outside the main styles.,list
+Bass Music,UK Garage,TRKElec,130-135,"Shuffled 2-step drums, chopped vocals.",moved from Dance
+Bass Music,Speed Garage,TRKElec,130-135,"Garage with four-on-the-floor kicks and heavy bass.",moved from Dance
+Bass Music,Grime,TRKElec,140,"UK MC-led music with square-wave bass and sparse drums.",list
+Bass Music,Footwork,TRKElec,155-165,Chicago footwork: fast triplet drums and chopped vocal samples.,moved from Electronic
+Electronic,Downtempo,TRKElec,80-110,"Slow, laid-back electronic music.",list
+Electronic,Trip Hop,TRKElec,70-100,"Dark, slow beats with samples and moody vocals.",list
+Electronic,Chillout,TRKAmb,80-110,Relaxing electronic background music.,list
+Electronic,Chillwave,TRKElec,80-110,"Hazy, nostalgic synth-based electronic music.",list
+Electronic,Ambient,TRKAmb,,"Atmospheric, often beatless music.",list
+Electronic,Synthwave,TRKElec,80-118,80s-inspired synth music.,list
+Electronic,IDM,TRKElec,,"Complex, experimental electronic music.",list
+Electronic,Indie Electronic,TRKElec,90-130,Electronic music with an indie sensibility.,list
+Electronic,Industrial,TRKElec,100-140,"Harsh, mechanical, noise-based electronic music.",list
+Electronic,Experimental,TRKElec,,Music that breaks genre conventions.,list
+Electronic,Chiptune,TRKChip,120-180,Music made with (or imitating) retro game sound chips.,list
+Rock,Indie Rock,TRKRock,100-140,Guitar rock with an independent sound.,list
+Rock,Punk,TRKRock,150-200,"Fast, raw, short songs.",list
+Rock,Post-Punk,TRKRock,110-150,"Angular guitars, driving bass, dark mood.",list
+Rock,Emo,TRKRock,120-180,Emotional rock with confessional lyrics.,list
+Rock,Shoegaze,TRKRock,90-130,Walls of distorted guitar and buried vocals.,list
+Rock,Heavy Metal,TRKRock,100-200,Distorted guitars and powerful drums.,list
+Jazz & Blues,Jazz,TRKJazz,60-240,"Swing, improvisation and extended harmony.",moved from Live
+Jazz & Blues,Blues,TRKJazz,60-120,Blues form and blue notes.,moved from Live
+Jazz & Blues,Swing,TRKJazz,120-200,Big band and swing era jazz.,added
+Jazz & Blues,Smooth Jazz,TRKJazz,80-110,"Polished, mellow jazz.",added
+Jazz & Blues,Lounge,TRKJazz,80-120,"Relaxed jazz-flavoured background music.",added
+Folk & Country,Folk,TRKFolk,80-130,Acoustic and traditional-rooted songs.,moved from Live
+Folk & Country,Country,TRKFolk,80-140,"American country: twang guitars, fiddle, pedal steel.",moved from Live
+Folk & Country,Bluegrass,TRKFolk,100-180,"Banjo, fiddle, mandolin and upright bass.",added
+Folk & Country,Americana,TRKFolk,80-130,"Mix of folk, country, blues and rock.",added
+Folk & Country,Singer-Songwriter,TRKFolk,70-130,Song-focused music around one performer.,added
+Folk & Country,Nordic Folk,TRKFolk,70-140,"Scandinavian folk: Hardanger fiddle, nyckelharpa, kulning.",added
+Latin & Caribbean,Reggaeton,TRKWorld,90-100,Dembow rhythm with rap and sung vocals.,moved from Hip Hop
+Latin & Caribbean,Dancehall,TRKWorld,90-110,"Jamaican digital riddims and deejay vocals.",moved from Hip Hop
+Latin & Caribbean,Reggae,TRKWorld,60-90,"Offbeat skank guitar, one-drop drums.",moved from Live
+Latin & Caribbean,Dub,TRKWorld,60-90,"Reggae remixed with heavy echo, reverb and bass.",moved from Live
+Latin & Caribbean,Salsa,TRKWorld,160-220,"Afro-Cuban rhythms, piano montunos and brass.",moved from Live
+Latin & Caribbean,Samba,TRKWorld,90-105,Brazilian samba rhythm (felt in two).,moved from Live
+Latin & Caribbean,Bossa Nova,TRKWorld,110-140,"Brazilian, soft and jazz-influenced.",moved from Live
+Latin & Caribbean,Cumbia,TRKWorld,85-115,"Colombian rhythm with accordion and percussion.",moved from Live
+Latin & Caribbean,Brazilian Funk,TRKWorld,125-135,"Baile funk / funk carioca: tamborzão beat, vocal chops.",moved from Hip Hop
+Latin & Caribbean,Latin Traditional,TRKWorld,,"Other traditional Latin American and Caribbean music. Replaces ""Latin American"", ""Caribbean"" and ""Brazilian"" from Global.",renamed from Latin American
+Afro,Afrobeats,TRKWorld,95-115,"West African pop: syncopated percussion, log drums, catchy hooks. Was ""Afropop & Afrobeats"".",moved from Dance
+Afro,Afropop,TRKWorld,95-120,Pop from across Africa.,moved from Dance
+Afro,Afrobeat,TRKWorld,100-130,"Fela Kuti-style: long grooves, horns, polyrhythms.",moved from Live
+Afro,Amapiano,TRKWorld,110-115,"South African: log-drum bass, shakers, piano.",moved from Dance
+Afro,Afro House,TRKWorld,118-124,House with African percussion and vocals.,added
+Global,African Traditional,TRKWorld,,Traditional music from across Africa. Was African.,renamed from African
+Global,Middle Eastern,TRKWorld,,"Arabic, Persian, Turkish and related traditions.",list
+Global,South Asian,TRKWorld,,"Indian, Pakistani, Bangladeshi and related traditions. Indian is merged in here.",list
+Global,East Asian,TRKWorld,,"Chinese, Japanese, Korean traditional music. Was Asian.",renamed from Asian
+Global,Celtic,TRKWorld,,"Irish, Scottish and Breton traditions.",added
+Global,Balkan,TRKWorld,,"Balkan brass, odd meters and folk traditions.",added
+Global,Flamenco,TRKWorld,,"Spanish flamenco: guitar, palmas, cajón.",moved from Live
+Cinematic,Orchestral,TRKCine,,Score for orchestra.,added
+Cinematic,Trailer,TRKCine,,"Epic build-ups, braams and hits for trailers.",added
+Cinematic,Hybrid,TRKCine,,"Orchestra combined with synths and sound design.",added
+Cinematic,Adventure,TRKCine,,"Heroic, uplifting score.",added
+Cinematic,Fantasy,TRKCine,,"Magical, whimsical or epic fantasy score.",added
+Cinematic,Suspense,TRKSusp,,"Tension, thriller and mystery underscore.",added
+Cinematic,Horror,TRKSusp,,"Dark, unsettling horror score.",added
+Cinematic,Game Score,TRKCine,,Music written for video games.,added
+Classical,Baroque,TRKClassic,,"1600-1750: Bach, Vivaldi, harpsichord, counterpoint.",added
+Classical,Romantic,TRKClassic,,"1800s: large orchestra, expressive melodies.",added
+Classical,Contemporary Classical,TRKClassic,,Classical composition from the 20th century and later.,added
+Classical,Neoclassical,TRKClassic,,"Modern piano and string music: minimal, emotional.",added
+Classical,Chamber,TRKClassic,,Small ensembles such as string quartets.,added
+Classical,Choral,TRKClassic,,Music for choir.,added

@@ -7,8 +7,8 @@ endrer kategorier og nøkkelord selv.
 Den komplette listen over alle kategorier, underkategorier og nøkkelord står i
 [KATALOG.md](KATALOG.md). Den lages automatisk fra kategorilisten.
 
-Hvordan FX Name, Description, Keywords, BPM og toneart skal skrives står i
-[METADATA-STILGUIDE.md](METADATA-STILGUIDE.md).
+Hvordan FX Name, Description, Keywords, sjanger, BPM og toneart skal skrives står i
+[METADATA-STILGUIDE.md](METADATA-STILGUIDE.md). Den faste sjangerlisten står i [SJANGRE.md](SJANGRE.md).
 
 ---
 
@@ -230,7 +230,9 @@ Den offisielle `MUSICAL` dekker noen av de samme instrumentene, som `MUSCWind`, 
 Et filnavn med bare ett instrumentord, som `clarinet.wav`, får derfor to forslag: WOODWINDS/CLARINET
 og MUSICAL/WOODWIND. Begge er riktige, og du velger det som passer biblioteket ditt.
 
-**5. TRACKS sorteres etter sjanger.** STINGER (seier, game over, level complete) og JINGLE
+**5. TRACKS sorteres etter sjanger.** Hver sjanger i [SJANGRE.md](SJANGRE.md) peker på én TRACKS-kategori,
+og sjangernavnene står som nøkkelord der («amapiano_track» havner i TRACKS/WORLD). Navn som også er
+instrument- eller lydeffektord (breakbeat, folk, industrial) er ikke tatt med. STINGER (seier, game over, level complete) og JINGLE
 (jingler, lydlogoer, identer) er unntak, fordi korte stikk kan være i alle sjangre.
 
 **6. Alle familier har MISC** for det som ikke passer andre steder.
@@ -246,6 +248,7 @@ Kategorilisten ligger i `catalog/` og kan åpnes i Numbers, Excel eller en tekst
 | `catalog/ucs_official.csv` | Offisiell UCS med alle oversettelser |
 | `catalog/custom_categories.csv` | AI GENERATED og musikkategoriene |
 | `catalog/match_tests.csv` | Testfilnavn og hvor de skal havne |
+| `catalog/genres.csv` | Sjangerlisten for metadatafeltene Genre og Subgenre, med TRACKS-kategori og typisk BPM |
 
 `data.txt`, `keywords/*.txt`, `UCS(folders).zip`, `catalog/_categorylist.xlsx` og
 `docs/KATALOG.md` **lages fra CSV-filene**. Endrer du `keywords/*.txt` direkte, blir det
@@ -303,7 +306,7 @@ python tools/build_catalog.py            # sjekk og bygg alt
 python tools/build_catalog.py --check    # bare sjekk
 python tools/build_catalog.py --test     # kjør testene i catalog/match_tests.csv
 python tools/build_catalog.py --match "fil.wav" "fil2.wav"   # vis hva programmet vil foreslå
-python tools/build_docs.py               # lag docs/KATALOG.md
+python tools/build_docs.py               # lag docs/KATALOG.md og docs/SJANGRE.md
 python tools/build_docs.py --pdf         # lag også docs/UCS-katalog.pdf (krever markdown og Chromium/Chrome)
 ```
 

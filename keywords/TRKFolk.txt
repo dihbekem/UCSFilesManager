@@ -1,1 +1,1 @@
-track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, folk, country, bluegrass, americana, singer-songwriter, låt, låter, musikk, underscore, singersongwriter, western, viser, visesang, låt, låter
+track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, folk, country, bluegrass, americana, singer-songwriter, låt, låter, musikk, underscore, singersongwriter, western, viser, visesang, nordic-folk, nordicfolk, låt, låter

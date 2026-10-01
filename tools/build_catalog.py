@@ -9,6 +9,7 @@ from the category CSVs in catalog/.
 Sources:
     catalog/ucs_official.csv       official UCS list (keep in sync with UCS releases)
     catalog/custom_categories.csv  AI GENERATED + music production extension
+    catalog/genres.csv             Genre/Subgenre vocabulary (metadata field, not a CatID)
 
 The CSVs are the source of truth: keywords/*.txt is regenerated from the
 "Synonyms - Comma Separated" column, so edit keywords in the CSV, not in the txt files.
@@ -27,6 +28,7 @@ DATA_FILE = os.path.join(ROOT, 'data.txt')
 KEYWORDS_DIR = os.path.join(ROOT, 'keywords')
 FOLDERS_ZIP = os.path.join(ROOT, 'UCS(folders).zip')
 XLSX_FILE = os.path.join(CATALOG_DIR, '_categorylist.xlsx')
+GENRES_FILE = os.path.join(CATALOG_DIR, 'genres.csv')
 SYN = 'Synonyms - Comma Separated'
 ZIP_DATE = (2024, 6, 27, 0, 0, 0)
 
@@ -43,6 +45,33 @@ def load():
                 row['_custom'] = name != 'ucs_official.csv'
                 rows.append(row)
     return header, rows
+
+
+def load_genres():
+    """catalog/genres.csv: the controlled vocabulary for the Genre and Subgenre metadata fields."""
+    with open(GENRES_FILE, encoding='utf-8', newline='') as f:
+        return list(csv.DictReader(f))
+
+
+def validate_genres(genres, rows):
+    errors = []
+    catids = {r['CatID'] for r in rows}
+    seen = {}
+    for line, g in enumerate(genres, start=2):
+        where = f'genres.csv:{line}'
+        if not g['Genre'] or not g['Subgenre']:
+            errors.append(f'{where}: Genre and Subgenre are required')
+        if g['Subgenre'] in seen:
+            errors.append(f'{where}: Subgenre "{g["Subgenre"]}" already used at {seen[g["Subgenre"]]}')
+        seen[g['Subgenre']] = where
+        if g['Subgenre'] == g['Genre']:
+            errors.append(f'{where}: Subgenre equals Genre; leave Subgenre out of the metadata instead')
+        if g['Tracks CatID'] not in catids:
+            errors.append(f'{where}: Tracks CatID "{g["Tracks CatID"]}" is not in the catalog')
+        bpm = g['Typical BPM']
+        if bpm and not all(p.strip().isdigit() for p in bpm.split('-')):
+            errors.append(f'{where}: Typical BPM "{bpm}" must look like 120 or 118-124')
+    return errors
 
 
 def keywords_of(row):
@@ -248,6 +277,7 @@ def main():
 
     header, rows = load()
     errors, warnings = validate(rows)
+    errors += validate_genres(load_genres(), rows)
     for w in warnings:
         print('warning:', w)
     for e in errors:

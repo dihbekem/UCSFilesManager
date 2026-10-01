@@ -19,6 +19,7 @@ python tools/build_docs.py --pdf         # regenerate docs/KATALOG.md and docs/U
 |---|---|
 | `ucs_official.csv` | The official UCS list (753 CatIDs, all translations). Keywords are this project's tuned versions. |
 | `custom_categories.csv` | The extension: `AI GENERATED` + the music production categories. |
+| `genres.csv` | Genre/Subgenre vocabulary for the metadata fields (not a CatID): genre, subgenre, TRACKS CatID, typical BPM, description. Rendered to `docs/SJANGRE.md`. |
 | `match_tests.csv` | Regression tests: file name, expected CatID, max options in the selection window. |
 | `_categorylist.xlsx` | Both lists merged, for browsing. Generated, don't edit. |
 

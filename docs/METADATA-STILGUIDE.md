@@ -1,6 +1,6 @@
 # UCS Musikk – metadata-stilguide
 
-Slik skriver du filnavn, FX Name, Description, Keywords og musikalsk informasjon (BPM og toneart)
+Slik skriver du filnavn, FX Name, Description, Keywords, sjanger og musikalsk informasjon (BPM og toneart)
 for lydene i musikk-kategoriene: DRUMS, SYNTH, VOCALS, TRACKS, STEM og de andre. Det samme gjelder
 for AI GENERATED.
 
@@ -11,14 +11,16 @@ for AI GENERATED.
 
 ---
 
-## 1. De fire tingene som beskriver en lyd
+## 1. Feltene som beskriver en lyd
 
 | Hvor | Felt | Hva det er til | Eksempel |
 |---|---|---|---|
 | Filnavn | **CatID** | Sorterer filen i riktig mappe | `SYNTHLead` |
 | Filnavn | **FX Name** | Kort tittel som leses i en fil-liste | `Saw Lead Riff 03` |
 | Metadata | **Description** | Hele beskrivelsen, det man søker og leser i | `Bright detuned saw lead playing a syncopated riff…` |
-| Metadata | **Keywords** | Ord som ikke står i Description, men som noen vil søke etter | `supersaw, trance, edm, festival, anthem` |
+| Metadata | **Keywords** | Ord som ikke står i Description, men som noen vil søke etter | `Supersaw, Festival, Anthem` |
+| Metadata | **Genre** | Hovedsjanger fra den faste listen | `Trance & Hard Dance` |
+| Metadata | **Subgenre** | Undersjanger fra den faste listen | `Trance` |
 
 For musikk kommer **BPM**, **Key** (toneart), **Bars** og **Time Signature** i tillegg.
 
@@ -158,16 +160,16 @@ Keywords er for ord som noen vil søke etter, men som **ikke** står i FX Name e
 - **Kommaseparert, i Title Case som i UCS:** `Supersaw, Trance, Festival, Anthem`
 - **5–20 ord.** Flere ord gir dårligere søketreff, ikke bedre.
 - **Ta med** synonymer (`Uplifter` for Riser), instrumentnavn og modeller (`Juno`, `Rhodes`, `808`),
-  sjanger, stemning (`Dark`, `Uplifting`), spilleteknikk og artikulasjon (`Pizzicato`, `Palm Mute`)
+  stemning (`Dark`, `Uplifting`), spilleteknikk og artikulasjon (`Pizzicato`, `Palm Mute`)
   og vanlige skrivemåter (`Hi-Hat, Hihat, Hat`).
-- **Ikke ta med** BPM, toneart, CreatorID, SourceID eller filformat. De har egne felt.
+- **Ikke ta med** sjanger, BPM, toneart, CreatorID, SourceID eller filformat. De har egne felt.
 - **Ikke gjenta ord** fra FX Name og Description. De blir søkt i uansett.
 - **Ikke fyll på med alt mulig** («keyword stuffing»). Hvert ord skal stemme for akkurat denne lyden.
 
 **Eksempel for synth-leaden**
 
 ```
-Supersaw, Trance, EDM, Festival, Anthem, Hook, Melody, Detuned Saw
+Supersaw, Festival, Anthem, Hook, Melody, Detuned Saw, Euphoric
 ```
 
 > Ikke bland dette feltet sammen med `keywords/*.txt` i UCSFilesManager. De filene brukes av
@@ -218,7 +220,74 @@ Bass, 808, synth- og instrumentnoter som én enkelt tone får **grunntone med ok
 
 ---
 
-## 7. Regler per kategori
+## 7. Sjanger (Genre og Subgenre)
+
+Sjanger har **to egne metadatafelt**: `Genre` og `Subgenre`. Begge velges fra den faste listen i
+[SJANGRE.md](SJANGRE.md), som lages fra `catalog/genres.csv`. Listen har 17 hovedsjangre og rundt
+130 undersjangre, med typisk BPM og hvilken TRACKS-kategori de hører til.
+
+| Hovedsjangre |
+|---|
+| Hip Hop · R&B & Soul · Pop · House · Techno · Trance & Hard Dance · Dance & EDM · Bass Music · Electronic · Rock · Jazz & Blues · Folk & Country · Latin & Caribbean · Afro · Global · Cinematic · Classical |
+
+**Regler**
+
+- **Genre: nøyaktig én hovedsjanger** fra listen.
+- **Subgenre: ingen, én eller to undersjangre** fra listen, skilt med semikolon:
+  `UK Drill` eller `UK Drill; Grime`.
+  - Den første må høre til hovedsjangeren.
+  - Den andre kan komme fra en annen hovedsjanger når lyden er en blanding.
+- **La Subgenre stå tom** når lyden bare er «generell» i hovedsjangeren, for eksempel vanlig pop eller rock.
+  Listen har derfor ingen undersjanger som heter «Pop» eller «Rock».
+- **Skriv navnene nøyaktig som i listen:** samme store og små bokstaver, `&` og bindestrek.
+  `Drum & Bass`, ikke `DnB` eller `Drum and Bass`. `Lo-Fi Hip Hop`, ikke `lofi`.
+- **Ikke finn på nye sjangre i feltet.** Mangler en sjanger, legg den til i `catalog/genres.csv`
+  (med hovedsjanger, TRACKS-kategori, typisk BPM og en kort beskrivelse) og kjør
+  `python tools/build_catalog.py --check`.
+- **Sjanger hører ikke hjemme i filnavnet eller i Keywords.** Den har sitt eget felt. Skriv den gjerne
+  naturlig i Description når den beskriver lyden: «UK drill beat with sliding 808s».
+
+**Dette er ikke sjangre**, og skal i Keywords eller Description i stedet:
+
+| Type | Eksempler | Hvor |
+|---|---|---|
+| Framføring | `Live Instruments`, `Acoustic`, `Unplugged` | Keywords |
+| Stemning | `Dark`, `Happy`, `Uplifting`, `Melancholic` | Keywords |
+| Bruk | `Corporate`, `Kids`, `Vlog`, `Podcast` | Keywords. For hele låter kan CatID være TRACKS/CORPORATE eller TRACKS/KIDS. |
+| Epoke | `80s`, `90s`, `Vintage` | Keywords eller Description |
+| Instrument | `Piano`, `Guitar` | CatID og Description |
+
+**Når skal sjanger fylles ut?**
+
+| Lydtype | Genre / Subgenre |
+|---|---|
+| TRACKS | **Påkrevd.** TRACKS-kategorien (CatID) skal stemme med sjangerens kolonne i SJANGRE.md. |
+| STEM | **Påkrevd**, med samme sjanger som låten. |
+| Loops (alle musikk-kategorier) og SAMPLE | **Påkrevd** når loopen har en tydelig stil, for eksempel `Hip Hop` / `Boom Bap`. |
+| Enkeltlyder (one-shots) | Valgfritt. Bare når lyden er laget for en sjanger, for eksempel et trap-808. |
+| FX for musikk (risere, impacts …) | Valgfritt. |
+| AI GENERATED/MUSICAL | Som for TRACKS og loops. |
+| Lydeffekter (offisiell UCS og resten av AI GENERATED) | Brukes ikke. |
+
+**Hvor feltene lagres:** et eget felt som heter `Genre` (og `Subgenre`), som brukerdefinerte felt i
+Soundminer eller BaseHead. I WAV-filer finnes også `IGNR` (Genre) i INFO-blokken, og i MP3 ID3-feltet
+`TCON`. Er det bare plass til ett sjangerfelt, skrives `Hip Hop; UK Drill`.
+
+**Eksempler**
+
+| Fil | Genre | Subgenre |
+|---|---|---|
+| `TRKHiphop_Night Shift Full_JLP_LONDONBEATS_142bpm Fsharpmin.wav` | Hip Hop | UK Drill |
+| `DRMLoop_Funky Break Loop 01_JLP_SPACEDRUMS_96bpm.wav` | Hip Hop | Boom Bap |
+| `SYNTHLead_Saw Lead Riff 03_JLP_NEONPACK_124bpm Fmin.wav` | Trance & Hard Dance | Trance |
+| `GITRBanjo_Bluegrass Roll Loop 02_JLP_PORCH_120bpm G.wav` | Folk & Country | Bluegrass |
+| `TRKCine_Rise Of The North Full_JLP_NORDICSCORE_100bpm Dmin.wav` | Cinematic | Orchestral; Nordic Folk |
+| `BASS808_Long Distorted 808 01_JLP_TRAPKIT_C1.wav` | Hip Hop | Trap |
+| `DRMKick_Punchy Acoustic Kick 04_JLP_LIVEKIT.wav` | *(tom)* | *(tom)* |
+
+---
+
+## 8. Regler per kategori
 
 | Kategori | FX Name begynner med | Må stå i Description | UserData |
 |---|---|---|---|
@@ -232,7 +301,7 @@ Bass, 808, synth- og instrumentnoter som én enkelt tone får **grunntone med ok
 | VOCALS | karakter + type: `Airy Female Chop` | teksten i anførselstegn, språk, stemmetype | `bpm` + toneart |
 | SAMPLE | stil + type: `Dusty Soul Loop` | kilde og opphav (rettigheter!) | `bpm` + toneart |
 | FX | type + karakter: `White Noise Riser` | lengde, retning | `bpm` hvis den er synket til tempo |
-| TRACKS | **låttittel** + versjon: `Rise Of The North Full` | sjanger, stemning, instrumentering, lengde | `bpm` + toneart |
+| TRACKS | **låttittel** + versjon: `Rise Of The North Full` | stemning, instrumentering, lengde (sjanger i eget felt) | `bpm` + toneart |
 | STEM | låttittel + stem: `Rise Of The North Drums` | hvilken låt, hva stemmen inneholder | samme `bpm` og toneart som låten |
 | AI GENERATED | som for kategorien lyden ellers ville hatt | **verktøy, modell og versjon, og prompt** | som ellers |
 
@@ -258,7 +327,7 @@ STEMDrums_Rise Of The North Drums_JLP_NORDICSCORE_100bpm Dmin.wav
 
 ---
 
-## 8. Sjekkliste før publisering
+## 9. Sjekkliste før publisering
 
 - [ ] CatID er riktig. Kjør gjerne `python tools/build_catalog.py --match "fil.wav"`.
 - [ ] Ingen understrek inne i FX Name, og ingen spesialtegn i filnavnet.
@@ -266,6 +335,8 @@ STEMDrums_Rise Of The North Drums_JLP_NORDICSCORE_100bpm Dmin.wav
 - [ ] Loops har `Loop` i FX Name, BPM i UserData og looper sømløst.
 - [ ] Toneart er skrevet som i tabellen (`Fmin`, `Bb`). Enkeltlyder med tonehøyde har grunntone (`C1`).
 - [ ] Description er på engelsk, med det viktigste først, uten markedsføring.
-- [ ] Keywords er 5–20 ord, uten BPM, toneart og gjentakelser.
+- [ ] Keywords er 5–20 ord, uten sjanger, BPM, toneart og gjentakelser.
+- [ ] Genre og Subgenre er skrevet nøyaktig som i SJANGRE.md. De er påkrevd for TRACKS, STEM og loops med tydelig stil.
+- [ ] TRACKS-kategorien (CatID) stemmer med sjangeren.
 - [ ] AI-lyder har verktøy, modell og versjon i Description.
 - [ ] Stems har samme BPM og toneart som låten.

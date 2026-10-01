@@ -1,1 +1,1 @@
-track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, pop, indiepop, synthpop, kpop, k-pop, låt, låter, musikk, underscore, popsong, dancepop, electropop, jpop, j-pop, låt, låter
+track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, pop, indiepop, synthpop, kpop, k-pop, låt, låter, musikk, underscore, popsong, dancepop, electropop, jpop, j-pop, indie-pop, synth-pop, dream-pop, dreampop, bedroom-pop, bedroompop, hyperpop, dance-pop, eurodance, låt, låter
