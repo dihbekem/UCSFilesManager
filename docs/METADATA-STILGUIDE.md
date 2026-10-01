@@ -96,7 +96,7 @@ FX Name er tittelen man ser i en fil-liste. Den skal kunne leses på ett sekund.
 - **Stor forbokstav i hvert ord** (Title Case): `Warm Rhodes Chords 02`
 - **Rekkefølge:** `[Karakter] [Kilde/instrument] [Rolle/handling] [Loop] [Nummer]`
   - `Tight Snare 03`
-  - `Dusty Rhodes Chords Loop 02`
+  - `Dusty Rhodes Loop 02`
   - `Airy Female Vocal Chop 07`
 - **Skriv `Loop` i FX Name for alle loops.** Loops ligger sammen med enkeltlydene i
   instrumentmappen (BANJO, PIANO …), så det er ordet «Loop» som skiller dem.

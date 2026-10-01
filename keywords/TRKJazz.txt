@@ -1,1 +1,1 @@
-track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, jazz, blues, swing, bebop, lounge, låt, låter, musikk, underscore, bigband, smoothjazz, fusion, ragtime, dixieland, jazzy, smooth-jazz, låt, låter
+track, tracks, song, songs, music, bgm, soundtrack, ost, score, cue, cues, theme, themes, loop, loops, jazz, blues, bebop, lounge, låt, låter, musikk, underscore, bigband, smoothjazz, fusion, ragtime, dixieland, jazzy, smooth-jazz, låt, låter

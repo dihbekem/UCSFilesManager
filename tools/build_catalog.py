@@ -64,6 +64,8 @@ def validate_genres(genres, rows):
         if g['Subgenre'] in seen:
             errors.append(f'{where}: Subgenre "{g["Subgenre"]}" already used at {seen[g["Subgenre"]]}')
         seen[g['Subgenre']] = where
+        if ';' in g['Genre'] + g['Subgenre']:
+            errors.append(f'{where}: ";" separates subgenres in the metadata field and can\'t be part of a name')
         if g['Subgenre'] == g['Genre']:
             errors.append(f'{where}: Subgenre equals Genre; leave Subgenre out of the metadata instead')
         if g['Tracks CatID'] not in catids:
@@ -207,6 +209,16 @@ def write_xlsx(header, rows):
     for col, width in zip('ABCDEF', (20, 22, 14, 10, 60, 80)):
         ws.column_dimensions[col].width = width
     wb.save(XLSX_FILE)
+    # openpyxl stamps the current time on the zip entries and in docProps/core.xml; repack
+    # with fixed values so the file only changes when the catalog does
+    import re
+    with zipfile.ZipFile(XLSX_FILE) as z:
+        parts = [(i.filename, z.read(i.filename)) for i in z.infolist()]
+    with zipfile.ZipFile(XLSX_FILE, 'w', zipfile.ZIP_DEFLATED) as z:
+        for name, data in parts:
+            if name == 'docProps/core.xml':
+                data = re.sub(rb'(<dcterms:(created|modified)[^>]*>)[^<]*', rb'\g<1>2024-06-27T00:00:00Z', data)
+            z.writestr(zipfile.ZipInfo(name, ZIP_DATE), data, zipfile.ZIP_DEFLATED)
 
 
 class Matcher:

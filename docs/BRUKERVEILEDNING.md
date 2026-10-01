@@ -56,15 +56,15 @@ Det skilles mellom store og små bokstaver: `SYNTHPad_…` gjenkjennes, `synthpa
 3. Hver CatID får **ett poeng for hvert ord** som også står i nøkkelordlisten dens.
 4. CatID-en med flest poeng vinner. Står flere likt, viser programmet et valgvindu.
 
-Eksempel: `Synth Lead Saw 01.wav` blir til ordene `synth`, `lead`, `saw` og `01`.
+Eksempel: `Synth Lead Supersaw 01.wav` blir til ordene `synth`, `lead`, `supersaw` og `01`.
 
 | CatID | Ord som treffer | Poeng |
 |---|---|---|
-| SYNTHLead | synth, lead, saw | **3** |
-| SYNTHPad | synth, saw | 2 |
+| SYNTHLead | synth, lead, supersaw | **3** |
+| SYNTHPad, SYNTHArp og de andre SYNTH-kategoriene | synth, supersaw | 2 |
 | VOCLLead | lead | 1 |
 
-`SYNTHLead` vinner, og filen blir hetende `SYNTHLead_Synth Lead Saw 01_….wav`.
+`SYNTHLead` vinner, og filen blir hetende `SYNTHLead_Synth Lead Supersaw 01_….wav`.
 
 Ingen poeng betyr at programmet ikke kan foreslå noe, og da må du velge fra hele listen.
 
@@ -83,7 +83,7 @@ Ingen poeng betyr at programmet ikke kan foreslå noe, og da må du velge fra he
   hva lyden er, for eksempel `AI_explosion_big.wav` eller `elevenlabs dog bark.wav`.
 - **Norske ord fungerer også** for de vanligste instrumentene og sjangrene: `skarptromme`,
   `kassegitar`, `fiolin`, `trekkspill`, `munnspill`, `hardingfele`, `joik`, `filmmusikk` …
-- Tall, toneart og tempo (`120`, `Am`, `bpm`) gjør ingen skade. De gir bare ikke poeng.
+- Tall, toneart og tempo (`120`, `Amin`, `124bpm`) gjør ingen skade. De gir bare ikke poeng.
 
 Sjekk et filnavn før du flytter noe:
 
@@ -310,6 +310,7 @@ python tools/build_docs.py               # lag docs/KATALOG.md og docs/SJANGRE.m
 python tools/build_docs.py --pdf         # lag også docs/UCS-katalog.pdf (krever markdown og Chromium/Chrome)
 ```
 
+Verktøyene i `tools/` krever Python 3.8 eller nyere (selve programmet trenger ikke Python).
 Byggeskriptet bruker bare Python sitt standardbibliotek. `openpyxl` trengs bare for
 regnearket `_categorylist.xlsx`, og `markdown` bare for PDF-en.
 
