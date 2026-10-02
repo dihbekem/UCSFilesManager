@@ -94,7 +94,7 @@ rhodes wurlitzer clavinet mellotron theremin vocoder talkbox
 SYNONYMS = {
     'DRMKick': ['Bass Drum'], 'DRMClap': ['Handclap'], 'DRMHat': ['Hihat'],
     'DRMCymb': ['Cymbal'], 'DRMTom': ['Tom Drum', 'Tomtom'], 'DRMRim': ['Rimshot', 'Sidestick'], 'DRMFill': ['Drum Fill'],
-    'DRMBreak': ['Breakbeat'], 'DRMLoop': ['Drum Beat', 'Beat', 'Groove'], 'DRMTop': ['Percussion Top'],
+    'DRMBreak': ['Breakbeat'], 'DRMLoop': ['Drum Beat', 'Groove'], 'DRMTop': ['Percussion Top'],
     'PERCShak': ['Shaker'], 'PERCTamb': ['Tambourine'], 'PERCCowb': ['Cowbell'], 'PERCHand': ['Hand Drum'],
     'PERCLoop': ['Percussion'],
     'BASS808': ['Sub Bass'], 'BASSSub': ['Low End'], 'BASSSynth': ['Synth Bass'], 'BASSGrowl': ['Wobble'],
@@ -270,6 +270,13 @@ ABBREV = {'brk': 'Break', 'bss': 'Bass', 'snr': 'Snare', 'kck': 'Kick', 'clp': '
           'percs': 'Perc', 'atmo': 'Atmos', 'leadvox': 'Lead Vox', 'amb': 'Ambient', 'orch': 'Orchestra'}
 DESC_WORDS = {'Perc': 'percussion', 'Vox': 'vocal', 'Gtr': 'guitar', 'Synth': 'synth', 'Hihat': 'hi-hat',
               'Bassdrum': 'bass drum', 'Hat': 'hi-hat', 'Leadvox': 'lead vocal'}
+# how joined or shortened words are written in an FX Name (display only, not used for matching)
+FX_SPELL = {'ful': 'Full', 'voc': 'Vocal', 'vocs': 'Vocal', 'fem': 'Female', 'ohh': 'Open Hat', 'ohat': 'Open Hat',
+            'openhat': 'Open Hat', 'closedhat': 'Closed Hat', 'clhat': 'Closed Hat', 'fxloop': 'FX',
+            'synthpad': 'Synth Pad', 'subbass': 'Sub Bass', 'snaredrum': 'Snare', 'kickdrum': 'Kick',
+            'pizz': 'Pizzicato', 'clav': 'Clavinet', 'melo': 'Melody', 'digi': 'Digital', 'fx': 'FX',
+            'synthlead': 'Synth Lead', 'synthbass': 'Synth Bass', 'vocalchop': 'Vocal Chop', '8bit': '8-Bit'}
+NEGATED_RE = re.compile(r'^no-?(kick|snare|hat|clap|bass|drum|vocal|vox|perc|sub|cymbal|top)s?$')
 FILLER = {'into', 'the', 'of', 'and', 'with', 'to', 'a', 'an', 'in', 'on'}
 TOOLS = {'elevenlabs': 'ElevenLabs', 'suno': 'Suno', 'udio': 'Udio', 'stableaudio': 'Stable Audio',
          'audiogen': 'AudioGen', 'audiocraft': 'AudioCraft', 'audioldm': 'AudioLDM', 'musicgen': 'MusicGen'}
@@ -790,10 +797,15 @@ class Suggester:
                 continue
             if re.match(r'^\d+-\d+$', w):
                 out += [(p, True) for p in w.split('-')]  # a bar range ("147-149"), not an index
-                continue
-            if '-' in w and not KEY_RE.match(w) and w.lower() not in self.index:
-                out += [(p, False) for p in w.split('-') if p]
-                continue
+            elif '-' in w and not KEY_RE.match(w) and w.lower() not in self.index:
+                out += self._word_parts([p for p in w.split('-') if p])  # "Crash5-44S": each part
+            else:
+                out += self._word_parts([w])
+        return out
+
+    def _word_parts(self, parts):
+        out = []
+        for w in parts:
             m = re.match(r'^([A-Za-z]{2,})(\d{1,4})$', w)
             if m and w.lower() not in self.index and w not in MACHINES:
                 known = m.group(1).lower() in self.vocab or self.real(m.group(1).lower())
@@ -816,7 +828,7 @@ class Suggester:
         orig_words = [w for w, _ in orig]
         # "Drum Loop 7 (No Kick)", "NoKick": the kick is what the loop leaves out
         negated = {orig_words[i + 1].lower() for i, w in enumerate(orig_words[:-1]) if w.lower() in ('no', 'without')}
-        negated |= {w.lower()[2:] for w in orig_words if re.match(r'^no(kick|snare|hat|hats|bass|drums|vocals?|perc)s?$', w, re.I)}
+        negated |= {NEGATED_RE.match(w.lower()).group(1) for w in orig_words if NEGATED_RE.match(w.lower())}
         negated |= {w.rstrip('s') for w in negated}
         # pack codes: "ZEN" (Zenhiser), "FIN" (Finesse), "RawCut" (Rawcutz), "TT" (Techno Tomorrow)
         pack_titles = [w for w in pub_words if w.isalpha() and len(w) >= 3]
@@ -833,7 +845,8 @@ class Suggester:
         publisher = [w for d in pack_dirs[:-1] for w in re.findall(r'[a-z0-9]+', d.lower())]
         drop_pub = lambda ws: drop_sequence(ws, publisher)
         file_words = self.expand(self.drop_genre_phrases(drop_pub(not_code(
-            [w for w in tokens(stem) if w not in negated and w.rstrip('s') not in negated]))))
+            [w for w in tokens(stem) if w not in negated and w.rstrip('s') not in negated
+             and not NEGATED_RE.match(w)]))))
         dir_words = self.expand([w for d in inner_dirs for w in self.drop_genre_phrases(drop_pub(tokens(d)))])
         pack_words = self.drop_genre_phrases(tokens(pack))
         genre_words = [tokens(pack), [w for d in inner_dirs for w in tokens(d)], tokens(stem)]
@@ -998,7 +1011,9 @@ class Suggester:
                         if first_type is None and part in role:
                             first_type = i
                 continue  # publisher, pack code or kit name
-            word = ABBREV.get(lw) or (w.upper() if lw in ACRONYMS else w[:1].upper() + w[1:].lower())
+            if NEGATED_RE.match(lw):
+                continue  # "NoKick": said by what the loop is, not a word of the name
+            word = FX_SPELL.get(lw) or ABBREV.get(lw) or (w.upper() if lw in ACRONYMS else w[:1].upper() + w[1:].lower())
             if is_type and first_type is None:
                 first_type = i
             kept.append((word, is_type))
@@ -1084,6 +1099,10 @@ class Suggester:
             what = what if what.endswith(' loop') else what + ' loop'
         elif music and row['Category'] not in ('TRACKS', 'STEM') and catid != 'AIMusc':
             what += ' one-shot'
+        left_out = sorted({w.rstrip('s') for w in negated if w.rstrip('s') in
+                           ('kick', 'snare', 'hat', 'clap', 'bass', 'drum', 'vocal', 'vox', 'perc', 'sub', 'cymbal', 'top')})
+        if left_out:
+            what += ' without ' + ' and '.join(left_out)  # "Drum loop without kick."
         facts = [f'{bars} bars' if bars else '', f'{bpm} BPM' if bpm else '', key_full,
                  f'root note {root_note}' if root_note else '']
         facts = ', '.join(f for f in facts if f)
