@@ -271,7 +271,9 @@ ABBREV = {'brk': 'Break', 'bss': 'Bass', 'snr': 'Snare', 'kck': 'Kick', 'clp': '
 DESC_WORDS = {'Perc': 'percussion', 'Vox': 'vocal', 'Gtr': 'guitar', 'Synth': 'synth', 'Hihat': 'hi-hat',
               'Bassdrum': 'bass drum', 'Hat': 'hi-hat', 'Leadvox': 'lead vocal'}
 # how joined or shortened words are written in an FX Name (display only, not used for matching)
-FX_SPELL = {'ful': 'Full', 'voc': 'Vocal', 'vocs': 'Vocal', 'fem': 'Female', 'ohh': 'Open Hat', 'ohat': 'Open Hat',
+FX_SPELL = {'cl': 'Closed', 'op': 'Open', 'shake': 'Shaker', 'shakes': 'Shaker', 'shakey': 'Shaker',
+            'shakerz': 'Shaker', 'clapz': 'Clap', 'kickz': 'Kick', 'snarez': 'Snare', 'hatz': 'Hat', 'percz': 'Perc',
+            'sanre': 'Snare', 'cloased': 'Closed', 'ful': 'Full', 'voc': 'Vocal', 'vocs': 'Vocal', 'fem': 'Female', 'ohh': 'Open Hat', 'ohat': 'Open Hat',
             'openhat': 'Open Hat', 'closedhat': 'Closed Hat', 'clhat': 'Closed Hat', 'fxloop': 'FX',
             'synthpad': 'Synth Pad', 'subbass': 'Sub Bass', 'snaredrum': 'Snare', 'kickdrum': 'Kick',
             'pizz': 'Pizzicato', 'clav': 'Clavinet', 'melo': 'Melody', 'digi': 'Digital', 'fx': 'FX',
@@ -301,7 +303,8 @@ CORE_NOUNS = {'kick', 'kicks', 'snare', 'snares', 'clap', 'claps', 'hat', 'hats'
               'drum', 'drums', 'bassdrum', 'bassdrums'}
 TRACK_FOLDER = {'tracks', 'songs', 'full', 'length', 'lengths', 'mixes', 'versions', 'music', 'themes', 'stingers',
                 'jingles', 'cues', 'bgm', 'soundtrack', 'ost', 'demo', 'demos'}
-ALIASES = {'bs': 'bass', 'upfilter': 'sweep', 'downfilter': 'sweep', 'sn': 'snare', 'cng': 'conga', 'songstarter': 'fullmix', 'songstarters': 'fullmix', 'rise': 'riser', 'rises': 'riser', 'org': 'organ', 'chd': 'chord', 'chds': 'chords', 'snth': 'synth', 'synt': 'synth', 'lp': 'loop', 'lps': 'loops', 'mus': 'music', 'faller': 'downlifter', 'fallers': 'downlifter',
+ALIASES = {'shake': 'shaker', 'shakes': 'shaker', 'shakey': 'shaker', 'shakerz': 'shaker', 'sanre': 'snare',
+           'cloased': 'closed', 'bs': 'bass', 'upfilter': 'sweep', 'downfilter': 'sweep', 'sn': 'snare', 'cng': 'conga', 'songstarter': 'fullmix', 'songstarters': 'fullmix', 'rise': 'riser', 'rises': 'riser', 'org': 'organ', 'chd': 'chord', 'chds': 'chords', 'snth': 'synth', 'synt': 'synth', 'lp': 'loop', 'lps': 'loops', 'mus': 'music', 'faller': 'downlifter', 'fallers': 'downlifter',
            'hho': 'openhat', 'hhc': 'closedhat', 'downshift': 'downlifter', 'downshifter': 'downlifter', 'downshifters': 'downlifter',
            'ambiance': 'atmos', 'ambiances': 'atmos', 'ambience': 'atmos', 'ambiences': 'atmos', 'acap': 'acapella', 'pluk': 'pluck', 'plk': 'pluck',
            'brk': 'break', 'bss': 'bass', 'bsln': 'bassline', 'syn': 'synth', 'kck': 'kick', 'kik': 'kick', 'snr': 'snare',
@@ -332,6 +335,7 @@ MACHINES = {'808', '909', '707', '606', '303'}
 KEEP_PLURAL = {'strings', 'keys', 'chimes', 'bells', 'woodwinds', 'drums', 'vibes', 'brass', 'bongos', 'congas',
                'timbales', 'claves', 'maracas', 'cymbals', 'brushes', 'sticks', 'mallets', 'bass'}
 LOOP_WORDS = {'loop', 'loops', 'beat', 'beats', 'groove', 'grooves'}
+SHOT_WORDS = {'oneshot', 'oneshots', 'one-shot', 'one-shots', 'hit', 'hits', 'single', 'singles', 'shot', 'shots'}
 LOOP_ORDER = ['DRMLoop', 'PERCLoop', 'SMPLLoop', 'DRMTop', 'DRMBreak']
 LOOP_TYPES = set(LOOP_ORDER)
 FOLEY_WORDS = {'foley', 'footstep', 'footsteps', 'sfx', 'fx', 'ambience', 'ambiance', 'field', 'household',
@@ -437,6 +441,7 @@ class Suggester:
             w for c in self.catids if self.rows[c]['Category'] in self.music_cats - {'TRACKS', 'STEM'}
             for w in self.sub_words[c]}
         instrument_words |= {w + 's' for w in instrument_words}
+        self.instrument_words = instrument_words
         self.weak_genre = self.genre_tokens - instrument_words
         # subcategory names only one CatID has ("chord" -> SYNTHChord, "piano" -> KEYSPiano) break ties
         family_names = {w for c in self.music_cats for w in re.findall('[a-z]+', c.lower())} | {
@@ -457,6 +462,8 @@ class Suggester:
         for w in alpha:
             if CHORD_RE.match(w):
                 out.append('chord')  # "Maj7", "Sus4": a chord, so a chordal instrument
+            elif w.endswith('z') and len(w) > 3 and w not in self.index and (w[:-1] in self.index or w[:-1] + 's' in self.index):
+                out.append(w[:-1] if w[:-1] in self.index else w[:-1] + 's')  # "Clapz" -> clap, "Kickz" -> kick
             elif w.endswith('s') and len(w) > 3 and w not in self.index and w[:-1] in self.index:
                 out.append(w[:-1])  # "downsweeps" -> downsweep
             elif len(w) >= 5 and not known(w) and w not in self.english:
@@ -556,6 +563,8 @@ class Suggester:
             scores = {}
             # TRACKS needs a track word in the file name or a folder called e.g. "Full Tracks"
             track_words = TRACK_WORDS & (set(file_words) - derived)
+            if 'songstarter' in file_words or 'songstarters' in file_words:
+                track_words -= {'song', 'songs'}  # "Song Starter": a kit mix, not a finished song
             if re.search(r'\b(track|song)s?\s*\d', ' '.join(file_words)):
                 track_words -= {'track', 'song'}  # "Track02_Beat": a song number in a kit, not a finished track
             if 'loop' in file_words or 'loops' in file_words:
@@ -570,6 +579,8 @@ class Suggester:
                     continue  # genre words alone don't make a file a finished track
                 if is_loop and not row['_custom'] and row['Category'] != 'MUSICAL':
                     continue  # a loop is music
+                if catid.startswith('STEM') and one_shot:
+                    continue  # "Perc Hit" in a construction kit is a one-shot, not a stem
                 if catid.startswith('STEM') and not stem and not (catid == 'STEMMix' and {'fullmix', 'mixdown'} & (
                         set(file_words) | set(dir_words))):
                     continue  # stems need "stem", "multitrack" or "construction kit" in the path
@@ -840,6 +851,18 @@ class Suggester:
         is_code = lambda w: len(w) >= 2 and (len(w) >= 3 and any(t.startswith(w) for t in pack_titles) or w == initials or
                                             len(w) <= 4 and initials.startswith(w) or w in dir_initials)
         not_code = lambda ws: [w for w in ws if w in self.index or not is_code(w)]  # "RawCut12" is not raw + cut
+        # the kit's name repeated in its files ("Tuff Vibes/Tuff Vibes Clap.wav"): a name, not a sound
+        # the kit's name repeated at the start of its files ("Tuff Vibes/Tuff Vibes Clap.wav",
+        # "Crumbs Kit/Crumbs Clapz.wav"): a name, not a sound
+        parent = [w for w in re.findall(r'[a-z]+', re.sub(r'([a-z])([A-Z])', r'\1 \2', inner_dirs[-1]).lower())
+                  if w not in ('kit', 'kits')] if inner_dirs else []
+        stem_alpha = re.findall(r'[a-z]+', re.sub(r'([a-z])([A-Z])', r'\1 \2', stem).lower())
+        kit_words = set()
+        if parent and stem_alpha[:len(parent)] == parent and len(stem_alpha) > len(parent) and \
+                not set(parent) & (self.instrument_words | LOOP_WORDS | SHOT_WORDS | STEM_WORDS | GENERIC):
+            kit_words = set(parent)
+        not_code_raw = not_code
+        not_code = lambda ws: [w for w in not_code_raw(ws) if w not in kit_words]
         # the publisher's name where it is spelled out ("Overdrive Audio - Guitars - Shot 16"), but
         # not its words on their own ("Bass Boutique/.../Hero - A - Bass 2" is a bass)
         publisher = [w for d in pack_dirs[:-1] for w in re.findall(r'[a-z0-9]+', d.lower())]
@@ -856,7 +879,7 @@ class Suggester:
         key, key_full, key_words = parse_key(orig_words)
         bars = next((m.group(1) for w in orig_words for m in [BARS_RE.match(w)] if m), '')
         explicit_bpm = BPM_RE.search(stem)
-        shot_words = {'oneshot', 'oneshots', 'one-shot', 'one-shots', 'hit', 'hits', 'single', 'singles', 'shot', 'shots'}
+        shot_words = SHOT_WORDS
         # the nearest name that says loop or one-shot decides: the file, then its folders, then the pack
         # ("Drums Hits/Loops/Drum_Loop_2" is a loop, "Hit Kit V3/HK Perc Loops/PL Drum 000 to 119 BPM" too)
         one_shot = loop_said = False
@@ -970,7 +993,7 @@ class Suggester:
             if CHORD_RE.match(w) and not lw.isdigit():
                 kept.append((w[:1].upper() + w[1:].lower(), False))  # chord quality: "Maj7", "Sus4"
                 continue
-            if len(lw) <= 2 and lw not in ABBREV and lw not in SHORT_OK:
+            if len(lw) <= 2 and lw not in ABBREV and lw not in SHORT_OK and lw not in FX_SPELL:
                 continue  # round-robin, variation and pack codes ("RR", "a", "SP")
             if lw.endswith('s') and len(lw) > 3 and lw not in KEEP_PLURAL and (
                     lw[:-1] in role or lw not in self.index and lw[:-1] in self.index):
@@ -983,7 +1006,7 @@ class Suggester:
                 w = w[:len(lw)]  # "Drumlp", "Basslp" -> Drum, Bass
             is_type = (lw in role or lw in ABBREV or ALIASES.get(lw) in role or lw in ('music', 'melody')) \
                 and lw not in VARIANT_WORDS
-            if lw in publisher_only or lw in negated:
+            if lw in publisher_only or lw in negated or (lw in kit_words and not is_type):
                 continue  # "Overdrive" (Overdrive Audio), "Kick" in "No Kick"
             if not is_type and w.isupper() and len(w) <= 5 and lw not in ABBREV and (
                     lw not in self.index and lw not in self.english):
@@ -999,9 +1022,9 @@ class Suggester:
                 continue  # "Track 02": a song number in a kit
             if lw in ('var', 'vari', 'variation', 'alt', 'ver'):
                 continue
-            if not is_type and not re.search('[aeiouy]', lw):
+            if not is_type and not re.search('[aeiouy]', lw) and lw not in FX_SPELL:
                 continue  # no vowel: a code ("DGS", "TT")
-            if not is_type and (lw in pub_words or not self.real(lw)):
+            if not is_type and lw not in FX_SPELL and (lw in pub_words or not self.real(lw)):
                 parts = [] if lw in pub_words else self.compound(lw)
                 if not any(part in role or part in ABBREV or part in CORE_NOUNS for part in parts):
                     parts = []  # "Playboy" is not Play + Boy; only joined instrument words are split
@@ -1138,7 +1161,7 @@ class Suggester:
         instruments = CORE_NOUNS | {x for ws in FAMILY_DIR.values() for x in ws}
         candidates = [w for w in dict.fromkeys(source_words) if usable(w) and not is_code(w)
                       and (w in self.kw_vocab or row and not row['_custom'] and w in self.vocab)
-                      and w not in instruments]  # "Keys" from "Keys & Strings" on a viola misleads
+                      and w not in instruments and w not in kit_words]  # "Keys" from "Keys & Strings" on a viola misleads
         candidates += [w for w in pack_words if usable(w) and w in DESCRIPTORS]
         out = []
         for w in candidates:
