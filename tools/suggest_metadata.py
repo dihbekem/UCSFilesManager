@@ -291,7 +291,7 @@ CORE_NOUNS = {'kick', 'kicks', 'snare', 'snares', 'clap', 'claps', 'hat', 'hats'
               'vocal', 'vocals', 'chord', 'chords', 'keys', 'piano', 'guitar', 'gtr', 'riser', 'impact', 'sweep',
               'fill', 'arp', 'organ', 'strings', 'brass', 'flute', 'choir', 'cymbal', 'conga', 'bongo', '808',
               'percussion', 'tambourine', 'cowbell', 'triangle', 'trumpet', 'sax', 'saxophone', 'violin', 'cello',
-              'drum', 'drums'}
+              'drum', 'drums', 'bassdrum', 'bassdrums'}
 TRACK_FOLDER = {'tracks', 'songs', 'full', 'length', 'lengths', 'mixes', 'versions', 'music', 'themes', 'stingers',
                 'jingles', 'cues', 'bgm', 'soundtrack', 'ost', 'demo', 'demos'}
 ALIASES = {'bs': 'bass', 'upfilter': 'sweep', 'downfilter': 'sweep', 'sn': 'snare', 'cng': 'conga', 'songstarter': 'fullmix', 'songstarters': 'fullmix', 'rise': 'riser', 'rises': 'riser', 'org': 'organ', 'chd': 'chord', 'chds': 'chords', 'snth': 'synth', 'synt': 'synth', 'lp': 'loop', 'lps': 'loops', 'mus': 'music', 'faller': 'downlifter', 'fallers': 'downlifter',
@@ -532,6 +532,8 @@ class Suggester:
         near_family = set()
         for d in reversed(self_dirs[self.pack_depth:]):
             near_family = {cat for cat, ws in FAMILY_DIR.items() if ws & set(tokens(d))}
+            if re.search(r'bass\s*drums?', d, re.I):
+                near_family = (near_family - {'BASS'}) | {'DRUMS'}  # "Bass Drums" is kicks
             if near_family:
                 break
         file_family = {cat for cat, ws in FAMILY_DIR.items() if (ws - AMBIGUOUS_PARTS) & set(file_words)}
@@ -1074,7 +1076,8 @@ class Suggester:
                                               else w.lower()) for w in words)
         if not row:
             what = what or 'sound'
-        elif not role & {y for w in words for x in w.lower().split() for y in (x, ALIASES.get(x))}:
+        elif not (role | self.sub_words.get(catid, set())) & {
+                y for w in words for x in w.lower().split() for y in (x, ALIASES.get(x))}:
             what = (what + ' ' + self.noun(catid)).strip()
         what = what.replace(' & ', ' and ').strip()
         if is_loop:
@@ -1113,8 +1116,10 @@ class Suggester:
         # original words only: parts of a split name ("Ghosthack" -> Ghost, Hack; "Template" ->
         # Temp, Late) are not keywords; neither are pack codes ("ZEN", "SIM") or song/kit titles
         source_words = [w for w in tokens(stem) + [w for d in inner_dirs for w in tokens(d)]]
+        instruments = CORE_NOUNS | {x for ws in FAMILY_DIR.values() for x in ws}
         candidates = [w for w in dict.fromkeys(source_words) if usable(w) and not is_code(w)
-                      and (w in self.kw_vocab or row and not row['_custom'] and w in self.vocab)]
+                      and (w in self.kw_vocab or row and not row['_custom'] and w in self.vocab)
+                      and w not in instruments]  # "Keys" from "Keys & Strings" on a viola misleads
         candidates += [w for w in pack_words if usable(w) and w in DESCRIPTORS]
         out = []
         for w in candidates:
