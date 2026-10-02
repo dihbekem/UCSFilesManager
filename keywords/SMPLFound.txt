@@ -1,1 +1,1 @@
-sample, samples, sampled, flip, found, foundsound, source, raw, flips, sampling, fieldsample
+sample, samples, sampled, flip, found, foundsound, source, flips, sampling, fieldsample

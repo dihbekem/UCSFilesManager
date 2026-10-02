@@ -335,41 +335,67 @@ sample packs) and writes a spreadsheet with a suggestion per file. It renames no
 | Column | Content |
 |---|---|
 | Path | Full path of the file |
-| Pack | First folder below the scanned folder (usually the pack name) |
+| Pack | The pack folder (with `--pack-depth 2`: publisher / pack) |
 | Confidence | `high`, `medium: …` (with the reason), `already UCS`, or `REVIEW: …` (rows highlighted) |
 | CatID, Category, SubCategory | Suggested category |
 | FX Name | Suggested FX Name, following the style guide (25 characters, Title Case, number) |
-| Suggested File Name | `CatID_FX Name_CreatorID_SourceID_UserData` |
+| Suggested File Name | `CatID_FX Name_CreatorID_SourceID_UserData`, unique in the whole library |
 | Description | Draft description: what it is, loop/one-shot, bars, BPM, key, root note, AI tool |
-| Genre, Subgenre | From genre names in the file or folder names (music categories only) |
-| BPM, Key, Root Note, Bars | Read from the file name; key spelled as in the style guide |
-| Keywords | Folder words and up to five synonyms not already in FX Name or Description |
+| Genre, Subgenre | From genre names in the pack, folder or file names (music categories only) |
+| BPM, Key, Root Note, Bars | Read from the file and folder names; key spelled as in the style guide |
+| Keywords | Sound words from the file and folder names plus plain synonyms of the CatID, nothing already in FX Name, Description or Genre |
 | Alternatives | Other CatIDs that scored the same |
 
 ```
 python tools/suggest_metadata.py "/path/to/Sample Packs" -o sample-packs.xlsx --creator JLP
+python tools/suggest_metadata.py file-list.txt --root "/path/to/Sample Packs" --pack-depth 2 -o sample-packs.csv
 ```
 
 Instead of a folder you can pass a text file with one path per line, for example made with
 `find "/path/to/Sample Packs" -type f > file-list.txt`. Use `--root` to say which folder the paths
-are relative to (by default the folder they all share).
+are relative to (by default the folder they all share), and `--pack-depth 2` when the folders are
+`Publisher/Pack/…`. Next to the output it writes `…-problems.csv`: every row that breaks a rule of
+the style guide (FX Name length and format, file name fields, key spelling, keyword format). It
+should be empty.
 
-How it decides:
+How it decides the category:
 
-- File-name words count double, folder words count once, so `Tight 03.wav` in `Drums/Snares`
-  still becomes `DRMSnare`.
-- It splits words more freely than the app (`Kick01`, `ClosedHat`, `hi-hat`).
-- AI GENERATED is only considered when an AI word or tool name is in the name. TRACKS is only
-  considered when a track word (track, song, full, theme …) is there, so genre words alone don't
-  turn a drum loop into a song.
-- On a tie, the CatID matching the first type word in the file name wins (`Riser_White Noise` →
-  RISER), then the family's MISC, then the music categories before official UCS.
-- A file is treated as a loop when the name has "loop", a tempo ("124bpm"), or a key.
+- File-name words count most, folder words half, the pack name a tenth. Words only one
+  subcategory has ("kick") count more than words several share ("drum"); describing words
+  ("open", "dist") and genre words ("jungle", "disco") count less.
+- The nearest folder that names an instrument family (`Rap Vocals`, `Piano`, `Bass Hits`,
+  `Synth Loops`) adds to that family, unless the file itself names another family
+  (`Postcards - Bass.wav` in `Guitar Loops` is a bass).
+- Genre names are taken out before scoring ("Future Bass", "Drum & Bass", "Bass House"), and so
+  is the publisher's name where it is spelled out (`Overdrive Audio - Guitars - Shot 16.wav` is a
+  guitar, not a distorted guitar). Pack codes such as `ZEN_`, `OPS_`, `RawCut` are ignored.
+- "No Kick", "NoKick", "without hats" remove that word.
+- AI GENERATED needs an AI word or tool name; TRACKS needs a track word ("full track", "song",
+  not "Track 02" of a kit); STEM needs "stem", "construction kit" or "songstarter", or "full mix";
+  VOCALS needs a vocal word in the path; a steel drum needs "steel"; a sub drop needs "sub",
+  "boom" or an FX folder (in a kit, "Drop Lead" is the lead of the drop).
+- When nothing in the file or folder names matches, the pack name decides (`Vintage Drum Breaks`,
+  `Soul Jazz Piano`). A loop with no instrument at all becomes SMPLLoop.
+- A loop is a file with "loop", "beat" or "groove", a tempo, bars or a key in its name, or a
+  tempo in its folder name. The nearest name that says loop or one-shot decides. One-shot
+  drum types (kick, clap…) stay one-shots even with the pack tempo in their name.
+
+How it writes the names:
+
+- FX Name: describing words first, then the instrument, then "Loop", then the number. Codes,
+  producer and kit names, tempos, keys and bar counts are left out; dictionary words and words
+  three or more publishers use are kept (`catalog/english_words.txt` is the word list).
+- The number is the file's own number when it has one (not the tempo, not a pack volume, not a
+  round-robin or variation number); names are made unique by counting up.
 - The SourceID is made from the pack folder name: "Lofi Dreams" → `LOFIDREAMS`,
   "Trap Essentials Vol 2" → `TEV2`.
+- Keywords: only words that describe the sound ("Ethereal", "Gritty", "Vinyl", "Tremolo"),
+  never pack codes, producer names, abbreviations or words that are in more than 1 % of all files,
+  plus at most a few synonyms per CatID ("Bass Drum" on a kick, "Arpeggio" on an arp). Many rows
+  have no keywords: the FX Name and Description already say everything the names tell.
 
-The suggestions come from names only; the audio is not analysed. Read every row, above all those
-marked REVIEW, before renaming anything.
+The suggestions come from names only; the audio is not analysed. Read the rows marked REVIEW
+before renaming anything, and spot-check the rest by pack.
 
 ---
 

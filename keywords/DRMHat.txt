@@ -1,1 +1,1 @@
-drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, hihat, hihats, hi-hat, hi-hats, hat, hats, hh, chh, ohh, closedhat, openhat, hit, hits, oneshot, oneshots, one-shot, open, closed, pedalhat, openhats, closedhats
+drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, hihat, hihats, hi-hat, hi-hats, hat, hats, hh, chh, ohh, closedhat, openhat, drm, drms, hit, hits, oneshot, oneshots, one-shot, open, closed, pedalhat, openhats, closedhats

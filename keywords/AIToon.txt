@@ -1,1 +1,1 @@
-ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, cartoon, toon, boing, clang, machine, musical, shake, splat, stretch, swish, twang, warble, whistle, zip
+ai, aigen, aigenerated, ai-generated, genai, elevenlabs, stableaudio, audiogen, audiocraft, audioldm, texttoaudio, text2audio, cartoon, toon, boing, clang, machine, shake, splat, stretch, swish, twang, warble, whistle, zip

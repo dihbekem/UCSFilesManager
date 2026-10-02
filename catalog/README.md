@@ -23,6 +23,8 @@ python tools/suggest_metadata.py "/path/to/Sample Packs" -o out.xlsx --creator J
 | `genres.csv` | Genre/Subgenre vocabulary for the metadata fields (not a CatID): genre, subgenre, TRACKS CatID, typical BPM, description. Rendered to `docs/GENRES.md`. |
 | `match_tests.csv` | Regression tests: file name, expected CatID, max options in the selection window. |
 | `_categorylist.xlsx` | Both lists merged, for browsing. Generated, don't edit. |
+| `english_words.txt` | Plain English words (lowercase dictionary words, no first names) that `tools/suggest_metadata.py` keeps in FX Names; other words are treated as producer, kit or pack names. |
+| `proper_names.txt` | First names and place names from the same dictionary; `suggest_metadata.py` never keeps them in FX Names ("Jon Casey Kick" → "Kick"). |
 
 `openpyxl` is only needed for the `.xlsx`. The rest of the script uses only the standard library.
 

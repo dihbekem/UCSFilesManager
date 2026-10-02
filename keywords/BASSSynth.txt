@@ -1,1 +1,1 @@
-bass, basses, bassline, basslines, riff, riffs, loop, loops, synth, synthbass, bassriff, acid, acidbass, 303, tb303, moogbass
+bass, basses, bassline, basslines, riff, riffs, loop, loops, synth, synthbass, bassriff, acid, acidbass, 303, tb303, moogbass, synbass

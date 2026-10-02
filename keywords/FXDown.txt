@@ -1,1 +1,1 @@
-fx, transition, transitions, downlifter, downlifters, downer, downsweep, downlift, falling
+fx, transition, transitions, downlifter, downlifters, downer, downsweep, downlift, falling, down

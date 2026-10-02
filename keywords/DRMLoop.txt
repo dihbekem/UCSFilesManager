@@ -1,1 +1,1 @@
-drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, loop, loops, beat, beats, groove, grooves, hit, hits, oneshot, oneshots, one-shot, drumloop, drumloops, pattern, patterns, rhythm, rhythms, brush, brushes
+drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, loop, loops, beat, beats, groove, grooves, drm, drms, hit, hits, oneshot, oneshots, one-shot, drumloop, drumloops, pattern, patterns, rhythm, rhythms, brush, brushes

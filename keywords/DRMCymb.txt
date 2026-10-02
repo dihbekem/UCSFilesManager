@@ -1,1 +1,1 @@
-drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, cymbal, cymbals, cym, crash, crashes, ride, rides, splash, china, hit, hits, oneshot, oneshots, one-shot, bell, ridebell, crashcymbal, ridecymbal, splashcymbal, chinacymbal
+drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, cymbal, cymbals, cym, crash, crashes, ride, rides, splash, china, drm, drms, hit, hits, oneshot, oneshots, one-shot, bell, ridebell, crashcymbal, ridecymbal, splashcymbal, chinacymbal

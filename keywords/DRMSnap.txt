@@ -1,1 +1,1 @@
-drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, snap, snaps, fingersnap, fingersnaps, hit, hits, oneshot, oneshots, one-shot, finger, fingers, snapping
+drum, drums, drumkit, drummachine, 808, 909, 707, 606, linndrum, snap, snaps, fingersnap, fingersnaps, drm, drms, hit, hits, oneshot, oneshots, one-shot, finger, fingers, snapping
